@@ -1,0 +1,1 @@
+sass --watch src/app.scss:../CtrlXApp/static/CtrlXApp/css/app.css

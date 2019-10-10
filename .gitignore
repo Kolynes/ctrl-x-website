@@ -1,0 +1,5 @@
+.vscode/
+CtrlX/__pycache__/
+CtrlXApp/__pycache__/
+CtrlXApp/migrations/__pycache__/
+CtrlXApp/CtrlXVue/node_modules/
