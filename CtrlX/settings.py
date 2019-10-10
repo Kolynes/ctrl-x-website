@@ -28,7 +28,8 @@ DEBUG = False
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "192.168.43.70",
-    "ctrlxhub.uzucorp.com"
+    "ctrlxhub.uzucorp.com",
+    "uzucorp.com"
 ]
 
 
