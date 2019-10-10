@@ -1,5 +1,5 @@
 <template>
-    <v-app class="v-app overflow-y-hidden" v-if="loaded">
+    <v-app class="v-app overflow-y-hidden">
          <v-toolbar app :color="scrolled? 'rgba(0,0,0,0.7)' : 'transparent' " :flat="!scrolled" dark>
             <v-avatar size="50" v-if="scrolled">
                 <img src="/static/CtrlXApp/images/logo.png"/>
@@ -131,6 +131,13 @@
                     <v-icon>keyboard_arrow_up</v-icon>
                 </v-btn>
             </v-fab-transition>
+            <v-fab-transition>
+                <a href="https://m.me/ctrlxhub">
+                    <v-btn fab bottom right fixed color="blue white--text">
+                        <v-icon>fab fa-facebook-messenger</v-icon>
+                    </v-btn>
+                </a>
+            </v-fab-transition>
             <v-container  grid-list-xl>
                 <v-layout wrap id="about" align-center justify-space-around>
                     <v-flex xs12 sm6>
@@ -147,15 +154,15 @@
                         </p>
                     </v-flex>
                     <v-flex xs12 sm6 class="wow fadeInDown" style="height: 300px" d-flex align-center>
-                        <v-flex xs1/>
-                        <v-flex xs10>
+                        <v-flex xs1 v-if="!$vuetify.breakpoint.xs"/>
+                        <v-flex xs12 sm10>
                             <v-fab-transition>
                                 <v-img src="/static/CtrlXApp/images/coworking.svg" v-if="jumbo == 1" :key="1"/>
                                 <v-img src="/static/CtrlXApp/images/developer-activity.svg" v-if="jumbo == 2" :key="2"/>
                                 <v-img src="/static/CtrlXApp/images/work-time.svg" v-if="jumbo == 3" :key="3"/>
                             </v-fab-transition>
                         </v-flex>
-                        <v-flex xs1/>
+                        <v-flex xs1 v-if="!$vuetify.breakpoint.xs"/>
                     </v-flex>
                 </v-layout>
                 <v-layout wrap class="mt-4" id="project-x" align-center>
@@ -193,11 +200,11 @@
                         <p>Project-X vows to continue to make such great impacts to the tech community</p>
                         <v-img src="/static/CtrlXApp/images/workshop1.png"/>
                     </v-flex>
-                    <v-flex xs12 sm6 md3 class="wow fadeInRight">
-                        <blockquote class="twitter-tweet" style="height: 200px"><p lang="en" dir="ltr">Participated in Project-X from ctrl-x hub. Learnt the basics of PHP and why liveserver can&#39;t run dynamics websites 🤓<a href="https://twitter.com/ctrlxhub?ref_src=twsrc%5Etfw">@ctrlxhub</a> <a href="https://twitter.com/nimbbly?ref_src=twsrc%5Etfw">@nimbbly</a> <a href="https://t.co/UO6xPp4mBG">pic.twitter.com/UO6xPp4mBG</a></p>&mdash; Victor Chukwujama (@ChukwujamaV) <a href="https://twitter.com/ChukwujamaV/status/1172929997587255299?ref_src=twsrc%5Etfw">September 14, 2019</a></blockquote>
+                    <v-flex xs12 sm6 md3>
+                        <div class="tweet" id="tweet-one"/>
                     </v-flex>
-                    <v-flex xs12 md3 v-if="!$vuetify.breakpoint.sm" class="wow fadeInRight">
-                        <blockquote class="twitter-tweet" style="height: 200px"><p lang="en" dir="ltr">Today was quiet stressful but it was worth it. I had a nice time with <a href="https://twitter.com/nimbbly?ref_src=twsrc%5Etfw">@nimbbly</a> and <a href="https://twitter.com/ctrlxhub?ref_src=twsrc%5Etfw">@ctrlxhub</a> in owerri, Nigeria. Minds were rubbed, ideas shared and information passed on <a href="https://twitter.com/hashtag/frontend?src=hash&amp;ref_src=twsrc%5Etfw">#frontend</a> and <a href="https://twitter.com/hashtag/backend?src=hash&amp;ref_src=twsrc%5Etfw">#backend</a> <a href="https://twitter.com/hashtag/programming?src=hash&amp;ref_src=twsrc%5Etfw">#programming</a>, <a href="https://twitter.com/hashtag/DigitalMarketing?src=hash&amp;ref_src=twsrc%5Etfw">#DigitalMarketing</a> and <a href="https://twitter.com/hashtag/uidesign?src=hash&amp;ref_src=twsrc%5Etfw">#uidesign</a> <a href="https://twitter.com/hashtag/uxdesign?src=hash&amp;ref_src=twsrc%5Etfw">#uxdesign</a>. <a href="https://twitter.com/hashtag/thank?src=hash&amp;ref_src=twsrc%5Etfw">#thank</a> you so much <a href="https://twitter.com/hashtag/projectx?src=hash&amp;ref_src=twsrc%5Etfw">#projectx</a>. <a href="https://t.co/y2nCszWDTJ">pic.twitter.com/y2nCszWDTJ</a></p>&mdash; Chinemerem D. Akwason (@akwasond) <a href="https://twitter.com/akwasond/status/1172969819647463425?ref_src=twsrc%5Etfw">September 14, 2019</a></blockquote>
+                    <v-flex xs12 md3 v-if="!$vuetify.breakpoint.sm">
+                        <div class="tweet" id="tweet-two"/>
                     </v-flex>
                 </v-layout>
                 <h2 style=" font-style: italic" class="mt-4" id="services">Our Services</h2>
@@ -262,9 +269,9 @@
                 </v-layout>
                 <h2 style=" font-style: italic" class="mt-5" id="pricing">Pricing</h2>
                 <div class="underline primary wow"/>
-                <v-layout wrap class="wow fadeIn">
+                <v-layout wrap>
                     <v-flex xs12 sm6 lg3>
-                        <v-card color="primary white--text" class="wow ">
+                        <v-card color="primary white--text" class="wow fadeIn">
                             <v-card-text>
                                 <center>
                                     <v-img src="/static/CtrlXApp/images/naira1.png" width="40" />
@@ -277,7 +284,7 @@
                         </v-card>
                     </v-flex>
                     <v-flex xs12 sm6 lg3>
-                        <v-card color="secondary" class="wow ">
+                        <v-card color="secondary" class="wow fadeIn">
                             <v-card-text>
                                 <center>
                                     <v-img src="/static/CtrlXApp/images/naira1.png" width="40" />
@@ -290,7 +297,7 @@
                         </v-card>
                     </v-flex>
                     <v-flex xs12 sm6 lg3>
-                        <v-card color="grey darken-4 white--text" class="wow ">
+                        <v-card color="grey darken-4 white--text" class="wow fadeIn">
                             <v-card-text>
                                 <center>
                                     <v-img src="/static/CtrlXApp/images/naira1.png" width="40" />
@@ -303,7 +310,7 @@
                         </v-card>
                     </v-flex>
                     <v-flex xs12 sm6 lg3>
-                        <v-card class="wow ">
+                        <v-card class="wow fadeIn">
                             <v-card-text>
                                 <center>
                                     <v-img src="/static/CtrlXApp/images/naira1.png" width="40" />
@@ -335,7 +342,7 @@
             </v-container>
         </div>
         <v-footer height="auto" >
-            <v-card color="#111" style="width:100%" flat class="py-4">
+            <v-card color="#111" style="width:100%" flat class="pb-5 pt-4">
                 <v-card-text class="white--text text-xs-center">
                     <v-layout row wrap>
                         <v-flex xs12 d-flex sm4>
@@ -350,68 +357,124 @@
                                     <v-icon color="#000">fab fa-twitter</v-icon>
                                 </v-btn>
                                 <a href="https://twitter.com/ctrlxhub" class="white--text">twitter.com/ctrlxhub</a><br>
-                                <iframe v-if="$vuetify.breakpoint.xs" class="mb-3" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15889.005274672933!2d6.9975476!3d5.3786015!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x175ac80138a1fa59!2sCtrl-X%20Hub!5e0!3m2!1sen!2sng!4v1570587514068!5m2!1sen!2sng"height="450" frameborder="0" style="border:0; width:100%" allowfullscreen=""></iframe>
+                                <template v-if="$vuetify.breakpoint.xs">
+                                    <v-list dark style="background: transparent">
+                                        <v-list-tile @click="$vuetify.goTo('#about'); showDrawer = false">
+                                            <v-list-tile-action>
+                                                <v-icon>info</v-icon>
+                                            </v-list-tile-action>
+                                            <v-list-tile-content>
+                                                <span>ABOUT</span>
+                                            </v-list-tile-content>
+                                        </v-list-tile>
+                                        <v-list-tile @click="$vuetify.goTo('#project-x'); showDrawer = false">
+                                            <v-list-tile-action>
+                                                <v-avatar size="25">
+                                                    <v-img src="/static/CtrlXApp/images/project-x-letter.png"/>
+                                                </v-avatar>
+                                            </v-list-tile-action>
+                                            <v-list-tile-content>
+                                                <span>PROJECT-X</span>
+                                            </v-list-tile-content>
+                                        </v-list-tile>
+                                        <v-list-tile @click="$vuetify.goTo('#services'); showDrawer = false">
+                                            <v-list-tile-action>
+                                                <v-icon>fas fa-briefcase</v-icon>
+                                            </v-list-tile-action>
+                                            <v-list-tile-content>
+                                                <span>SERVICES</span>
+                                            </v-list-tile-content>
+                                        </v-list-tile>
+                                        <v-list-tile @click="$vuetify.goTo('#pricing'); showDrawer = false">
+                                            <v-list-tile-action>
+                                                <v-icon>attach_money</v-icon>
+                                            </v-list-tile-action>
+                                            <v-list-tile-content>
+                                                <span>PRICING</span>
+                                            </v-list-tile-content>
+                                        </v-list-tile>
+                                        <v-list-tile @click="callToAction = true; showDrawer = false">
+                                            <v-list-tile-action>
+                                                <v-icon>phone</v-icon>
+                                            </v-list-tile-action>
+                                            <v-list-tile-content>
+                                                <span>CONTACT US</span>
+                                            </v-list-tile-content>
+                                        </v-list-tile>
+                                        <v-list-tile @click="showJoinForm = true; showDrawer = false">
+                                            <v-list-tile-action>
+                                                <v-icon>arrow_forward</v-icon>
+                                            </v-list-tile-action>
+                                            <v-list-tile-content>
+                                                <span>JOIN US</span>
+                                            </v-list-tile-content>
+                                        </v-list-tile>
+                                    </v-list>
+                                    <iframe class="mb-3" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15889.005274672933!2d6.9975476!3d5.3786015!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x175ac80138a1fa59!2sCtrl-X%20Hub!5e0!3m2!1sen!2sng!4v1570587514068!5m2!1sen!2sng"height="450" frameborder="0" style="border:0; width:100%" allowfullscreen=""></iframe>
+                                </template>
                                 <h3 class="body-2 text-xs-center" ><a href="https://www.uzucorp.com" class="white--text"><em><img style="width: 150px;" src="/static/CtrlXApp/images/uzucorpwhitetrans.png"/> <p>Rapidly developed by uzucorp</p></em></a></h3>
                                 <h3 class="body-2 text-xs-center"><em>Ctrl-X Hub &copy; 2019</em></h3>
                             </div>
                         </v-flex>
-                        <v-flex xs12 sm4>
-                            <v-list dark style="background: transparent">
-                                <v-list-tile @click="$vuetify.goTo('#about'); showDrawer = false">
-                                    <v-list-tile-action>
-                                        <v-icon>info</v-icon>
-                                    </v-list-tile-action>
-                                    <v-list-tile-content>
-                                        <span>ABOUT</span>
-                                    </v-list-tile-content>
-                                </v-list-tile>
-                                <v-list-tile @click="$vuetify.goTo('#project-x'); showDrawer = false">
-                                    <v-list-tile-action>
-                                        <v-avatar size="25">
-                                            <v-img src="/static/CtrlXApp/images/project-x-letter.png"/>
-                                        </v-avatar>
-                                    </v-list-tile-action>
-                                    <v-list-tile-content>
-                                        <span>PROJECT-X</span>
-                                    </v-list-tile-content>
-                                </v-list-tile>
-                                <v-list-tile @click="$vuetify.goTo('#services'); showDrawer = false">
-                                    <v-list-tile-action>
-                                        <v-icon>fas fa-briefcase</v-icon>
-                                    </v-list-tile-action>
-                                    <v-list-tile-content>
-                                        <span>SERVICES</span>
-                                    </v-list-tile-content>
-                                </v-list-tile>
-                                <v-list-tile @click="$vuetify.goTo('#pricing'); showDrawer = false">
-                                    <v-list-tile-action>
-                                        <v-icon>attach_money</v-icon>
-                                    </v-list-tile-action>
-                                    <v-list-tile-content>
-                                        <span>PRICING</span>
-                                    </v-list-tile-content>
-                                </v-list-tile>
-                                <v-list-tile @click="callToAction = true; showDrawer = false">
-                                    <v-list-tile-action>
-                                        <v-icon>phone</v-icon>
-                                    </v-list-tile-action>
-                                    <v-list-tile-content>
-                                        <span>CONTACT US</span>
-                                    </v-list-tile-content>
-                                </v-list-tile>
-                                <v-list-tile @click="showJoinForm = true; showDrawer = false">
-                                    <v-list-tile-action>
-                                        <v-icon>arrow_forward</v-icon>
-                                    </v-list-tile-action>
-                                    <v-list-tile-content>
-                                        <span>JOIN US</span>
-                                    </v-list-tile-content>
-                                </v-list-tile>
-                            </v-list>
-                        </v-flex>
-                        <v-flex xs12 d-flex sm4 v-if="$vuetify.breakpoint.smAndUp">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15889.005274672933!2d6.9975476!3d5.3786015!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x175ac80138a1fa59!2sCtrl-X%20Hub!5e0!3m2!1sen!2sng!4v1570587514068!5m2!1sen!2sng" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                        </v-flex>
+                        <template v-if="$vuetify.breakpoint.smAndUp">
+                            <v-flex xs12 sm4>
+                                <v-list dark style="background: transparent">
+                                    <v-list-tile @click="$vuetify.goTo('#about'); showDrawer = false">
+                                        <v-list-tile-action>
+                                            <v-icon>info</v-icon>
+                                        </v-list-tile-action>
+                                        <v-list-tile-content>
+                                            <span>ABOUT</span>
+                                        </v-list-tile-content>
+                                    </v-list-tile>
+                                    <v-list-tile @click="$vuetify.goTo('#project-x'); showDrawer = false">
+                                        <v-list-tile-action>
+                                            <v-avatar size="25">
+                                                <v-img src="/static/CtrlXApp/images/project-x-letter.png"/>
+                                            </v-avatar>
+                                        </v-list-tile-action>
+                                        <v-list-tile-content>
+                                            <span>PROJECT-X</span>
+                                        </v-list-tile-content>
+                                    </v-list-tile>
+                                    <v-list-tile @click="$vuetify.goTo('#services'); showDrawer = false">
+                                        <v-list-tile-action>
+                                            <v-icon>fas fa-briefcase</v-icon>
+                                        </v-list-tile-action>
+                                        <v-list-tile-content>
+                                            <span>SERVICES</span>
+                                        </v-list-tile-content>
+                                    </v-list-tile>
+                                    <v-list-tile @click="$vuetify.goTo('#pricing'); showDrawer = false">
+                                        <v-list-tile-action>
+                                            <v-icon>attach_money</v-icon>
+                                        </v-list-tile-action>
+                                        <v-list-tile-content>
+                                            <span>PRICING</span>
+                                        </v-list-tile-content>
+                                    </v-list-tile>
+                                    <v-list-tile @click="callToAction = true; showDrawer = false">
+                                        <v-list-tile-action>
+                                            <v-icon>phone</v-icon>
+                                        </v-list-tile-action>
+                                        <v-list-tile-content>
+                                            <span>CONTACT US</span>
+                                        </v-list-tile-content>
+                                    </v-list-tile>
+                                    <v-list-tile @click="showJoinForm = true; showDrawer = false">
+                                        <v-list-tile-action>
+                                            <v-icon>arrow_forward</v-icon>
+                                        </v-list-tile-action>
+                                        <v-list-tile-content>
+                                            <span>JOIN US</span>
+                                        </v-list-tile-content>
+                                    </v-list-tile>
+                                </v-list>
+                            </v-flex>
+                            <v-flex xs12 d-flex sm4 >
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15889.005274672933!2d6.9975476!3d5.3786015!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x175ac80138a1fa59!2sCtrl-X%20Hub!5e0!3m2!1sen!2sng!4v1570587514068!5m2!1sen!2sng" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                            </v-flex>
+                        </template>
                     </v-layout>
                 </v-card-text>
             </v-card>
@@ -420,23 +483,23 @@
             <v-card>
                 <v-card-text>
                     <v-list>
-                        <v-list-tile ripple href="tel:+2348131651917">
+                        <v-list-tile ripple href="tel:+2348147689572">
                             <v-avatar>
-                                <v-icon>phone</v-icon>
+                                <v-icon color="success">phone</v-icon>
                             </v-avatar>
-                            <span>Phone 1: +2348131651917</span>
+                            <span>Phone 1: +2348147689572</span>
                         </v-list-tile>
                         <v-divider inset/>
                         <v-list-tile ripple href="tel:+2348115716657">
                             <v-avatar>
-                                <v-icon>phone</v-icon>
+                                <v-icon color="yellow">phone</v-icon>
                             </v-avatar>
                             <span>Phone 2: +2348115716657</span>
                         </v-list-tile>
                         <v-divider inset/>
                         <v-list-tile href="https://m.me/ctrlxhub">
                             <v-avatar>
-                                <v-icon>fab fa-facebook-messenger</v-icon>
+                                <v-icon color="blue">fab fa-facebook-messenger</v-icon>
                             </v-avatar>
                             <span> Reach us on Messenger</span>
                         </v-list-tile>
@@ -510,7 +573,6 @@ export default {
         return{
             callToAction: false,
             scrolled: false,
-            loaded: false,
             showJoinForm: false,
             windows: 0,
             joining: false,
@@ -585,9 +647,10 @@ export default {
         }
     },
     mounted(){
+        twttr.widgets.createTweet("1172969819647463425", document.querySelector("#tweet-one"))
+        twttr.widgets.createTweet("1172929997587255299", document.querySelector("#tweet-two"))
         document.addEventListener("scroll", event => this.scrolled = scrollY > 0);
-        new WOW({offset: 100}).init();
-        setTimeout(() =>this.loaded = true, 500);
+        new WOW({offset: 50}).init();
         setInterval(() => {
             if(this.jumbo == 3){
                 this.jumbo = 1

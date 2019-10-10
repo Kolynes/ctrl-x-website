@@ -11,35 +11,11 @@
     <link rel="icon" href="{% static 'CtrlXApp/images/logoblack.png' %}"/>
     <meta name='viewport' content='initial-scale=1 width=device-width'>
   </head>
+  <script src="https://platform.twitter.com/widgets.js"></script>
   <body>
     <div id="vue-app">
     </div>
-    <!-- Load Facebook SDK for JavaScript -->
-    <div id="fb-root"></div>
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v4.0'
-        });
-      };
-
-      (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
-    <!-- Your customer chat code -->
-    <div class="fb-customerchat"
-      attribution="setup_tool"
-      page_id="614379829043123"
-theme_color="#003859">
-    </div>
   </body>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <script src="{% static 'CtrlXApp/js/vue.min.js' %}"></script>
   <script src="{% static 'CtrlXApp/js/vuetify.min.js' %}"></script>
   <script src="{% static 'CtrlXApp/js/wow.min.js' %}"></script>

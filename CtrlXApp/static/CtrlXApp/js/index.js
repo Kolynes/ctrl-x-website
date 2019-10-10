@@ -582,13 +582,75 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     data: function data() {
         return {
             callToAction: false,
             scrolled: false,
-            loaded: false,
             showJoinForm: false,
             windows: 0,
             joining: false,
@@ -668,13 +730,12 @@ exports.default = {
     mounted: function mounted() {
         var _this2 = this;
 
+        twttr.widgets.createTweet("1172969819647463425", document.querySelector("#tweet-one"));
+        twttr.widgets.createTweet("1172929997587255299", document.querySelector("#tweet-two"));
         document.addEventListener("scroll", function (event) {
             return _this2.scrolled = scrollY > 0;
         });
-        new WOW({ offset: 100 }).init();
-        setTimeout(function () {
-            return _this2.loaded = true;
-        }, 500);
+        new WOW({ offset: 50 }).init();
         setInterval(function () {
             if (_this2.jumbo == 3) {
                 _this2.jumbo = 1;
@@ -1217,723 +1278,759 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.loaded
-    ? _c(
-        "v-app",
-        { staticClass: "v-app overflow-y-hidden" },
+  return _c(
+    "v-app",
+    { staticClass: "v-app overflow-y-hidden" },
+    [
+      _c(
+        "v-toolbar",
+        {
+          attrs: {
+            app: "",
+            color: _vm.scrolled ? "rgba(0,0,0,0.7)" : "transparent",
+            flat: !_vm.scrolled,
+            dark: ""
+          }
+        },
         [
-          _c(
-            "v-toolbar",
-            {
-              attrs: {
-                app: "",
-                color: _vm.scrolled ? "rgba(0,0,0,0.7)" : "transparent",
-                flat: !_vm.scrolled,
-                dark: ""
-              }
-            },
-            [
-              _vm.scrolled
-                ? _c("v-avatar", { attrs: { size: "50" } }, [
-                    _c("img", {
-                      attrs: { src: "/static/CtrlXApp/images/logo.png" }
-                    })
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _c("v-spacer"),
-              _vm._v(" "),
-              !_vm.$vuetify.breakpoint.smAndDown
-                ? _c(
-                    "div",
-                    [
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: { flat: "" },
-                          on: {
-                            click: function($event) {
-                              _vm.$vuetify.goTo("#about")
-                            }
-                          }
-                        },
-                        [_vm._v("about")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: { flat: "" },
-                          on: {
-                            click: function($event) {
-                              _vm.$vuetify.goTo("#project-x")
-                            }
-                          }
-                        },
-                        [_vm._v("Project-x")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: { flat: "" },
-                          on: {
-                            click: function($event) {
-                              _vm.$vuetify.goTo("#services")
-                            }
-                          }
-                        },
-                        [_vm._v("services")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: { flat: "" },
-                          on: {
-                            click: function($event) {
-                              _vm.$vuetify.goTo("#pricing")
-                            }
-                          }
-                        },
-                        [_vm._v("pricing")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: { flat: "" },
-                          on: {
-                            click: function($event) {
-                              _vm.callToAction = true
-                            }
-                          }
-                        },
-                        [_vm._v("contact us")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: { flat: "" },
-                          on: {
-                            click: function($event) {
-                              _vm.showJoinForm = true
-                            }
-                          }
-                        },
-                        [_vm._v("join us")]
-                      )
-                    ],
-                    1
-                  )
-                : _c(
+          _vm.scrolled
+            ? _c("v-avatar", { attrs: { size: "50" } }, [
+                _c("img", {
+                  attrs: { src: "/static/CtrlXApp/images/logo.png" }
+                })
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("v-spacer"),
+          _vm._v(" "),
+          !_vm.$vuetify.breakpoint.smAndDown
+            ? _c(
+                "div",
+                [
+                  _c(
                     "v-btn",
                     {
-                      attrs: { icon: "" },
+                      attrs: { flat: "" },
                       on: {
                         click: function($event) {
-                          _vm.showDrawer = true
+                          _vm.$vuetify.goTo("#about")
                         }
                       }
                     },
-                    [_c("v-icon", [_vm._v("menu")])],
-                    1
-                  )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _vm.$vuetify.breakpoint.smAndDown
-            ? _c(
-                "v-navigation-drawer",
-                {
-                  attrs: { right: "", app: "", dark: "" },
-                  model: {
-                    value: _vm.showDrawer,
-                    callback: function($$v) {
-                      _vm.showDrawer = $$v
-                    },
-                    expression: "showDrawer"
-                  }
-                },
-                [
-                  _c("center", [
-                    _c("img", {
-                      staticClass: "wow bounceIn",
-                      staticStyle: { width: "150px" },
-                      attrs: { src: "/static/CtrlXApp/images/logo.png" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("v-divider"),
+                    [_vm._v("about")]
+                  ),
                   _vm._v(" "),
                   _c(
-                    "v-list",
-                    [
-                      _c(
-                        "v-list-tile",
-                        {
-                          on: {
-                            click: function($event) {
-                              _vm.$vuetify.goTo("#about")
-                              _vm.showDrawer = false
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "v-list-tile-action",
-                            [_c("v-icon", [_vm._v("info")])],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("v-list-tile-content", [
-                            _c("span", [_vm._v("ABOUT")])
-                          ])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-tile",
-                        {
-                          on: {
-                            click: function($event) {
-                              _vm.$vuetify.goTo("#project-x")
-                              _vm.showDrawer = false
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "v-list-tile-action",
-                            [
-                              _c(
-                                "v-avatar",
-                                { attrs: { size: "25" } },
-                                [
-                                  _c("v-img", {
-                                    attrs: {
-                                      src:
-                                        "/static/CtrlXApp/images/project-x-letter.png"
-                                    }
-                                  })
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("v-list-tile-content", [
-                            _c("span", [_vm._v("PROJECT-X")])
-                          ])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-tile",
-                        {
-                          on: {
-                            click: function($event) {
-                              _vm.$vuetify.goTo("#services")
-                              _vm.showDrawer = false
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "v-list-tile-action",
-                            [_c("v-icon", [_vm._v("fas fa-briefcase")])],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("v-list-tile-content", [
-                            _c("span", [_vm._v("SERVICES")])
-                          ])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-tile",
-                        {
-                          on: {
-                            click: function($event) {
-                              _vm.$vuetify.goTo("#pricing")
-                              _vm.showDrawer = false
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "v-list-tile-action",
-                            [_c("v-icon", [_vm._v("attach_money")])],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("v-list-tile-content", [
-                            _c("span", [_vm._v("PRICING")])
-                          ])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-tile",
-                        {
-                          on: {
-                            click: function($event) {
-                              _vm.callToAction = true
-                              _vm.showDrawer = false
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "v-list-tile-action",
-                            [_c("v-icon", [_vm._v("phone")])],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("v-list-tile-content", [
-                            _c("span", [_vm._v("CONTACT US")])
-                          ])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-tile",
-                        {
-                          on: {
-                            click: function($event) {
-                              _vm.showJoinForm = true
-                              _vm.showDrawer = false
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "v-list-tile-action",
-                            [_c("v-icon", [_vm._v("arrow_forward")])],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("v-list-tile-content", [
-                            _c("span", [_vm._v("JOIN US")])
-                          ])
-                        ],
-                        1
-                      )
-                    ],
-                    1
+                    "v-btn",
+                    {
+                      attrs: { flat: "" },
+                      on: {
+                        click: function($event) {
+                          _vm.$vuetify.goTo("#project-x")
+                        }
+                      }
+                    },
+                    [_vm._v("Project-x")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { flat: "" },
+                      on: {
+                        click: function($event) {
+                          _vm.$vuetify.goTo("#services")
+                        }
+                      }
+                    },
+                    [_vm._v("services")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { flat: "" },
+                      on: {
+                        click: function($event) {
+                          _vm.$vuetify.goTo("#pricing")
+                        }
+                      }
+                    },
+                    [_vm._v("pricing")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { flat: "" },
+                      on: {
+                        click: function($event) {
+                          _vm.callToAction = true
+                        }
+                      }
+                    },
+                    [_vm._v("contact us")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { flat: "" },
+                      on: {
+                        click: function($event) {
+                          _vm.showJoinForm = true
+                        }
+                      }
+                    },
+                    [_vm._v("join us")]
                   )
                 ],
                 1
               )
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "jumbotron" },
+            : _c(
+                "v-btn",
+                {
+                  attrs: { icon: "" },
+                  on: {
+                    click: function($event) {
+                      _vm.showDrawer = true
+                    }
+                  }
+                },
+                [_c("v-icon", [_vm._v("menu")])],
+                1
+              )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.$vuetify.breakpoint.smAndDown
+        ? _c(
+            "v-navigation-drawer",
+            {
+              attrs: { right: "", app: "", dark: "" },
+              model: {
+                value: _vm.showDrawer,
+                callback: function($$v) {
+                  _vm.showDrawer = $$v
+                },
+                expression: "showDrawer"
+              }
+            },
             [
-              _c("v-fade-transition", [
-                _vm.jumbo == 1
-                  ? _c("div", { staticClass: "backdrop", attrs: { id: "one" } })
-                  : _vm._e()
+              _c("center", [
+                _c("img", {
+                  staticClass: "wow bounceIn",
+                  staticStyle: { width: "150px" },
+                  attrs: { src: "/static/CtrlXApp/images/logo.png" }
+                })
               ]),
               _vm._v(" "),
-              _c("v-fade-transition", [
-                _vm.jumbo == 2
-                  ? _c("div", { staticClass: "backdrop", attrs: { id: "two" } })
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("v-fade-transition", [
-                _vm.jumbo == 3
-                  ? _c("div", {
-                      staticClass: "backdrop",
-                      attrs: { id: "three" }
-                    })
-                  : _vm._e()
-              ]),
+              _c("v-divider"),
               _vm._v(" "),
               _c(
-                "v-layout",
-                {
-                  staticClass: "py-5",
-                  attrs: { row: "", wrap: "", "align-center": "" }
-                },
+                "v-list",
                 [
                   _c(
-                    "v-flex",
-                    { attrs: { xs12: "", sm6: "" } },
+                    "v-list-tile",
+                    {
+                      on: {
+                        click: function($event) {
+                          _vm.$vuetify.goTo("#about")
+                          _vm.showDrawer = false
+                        }
+                      }
+                    },
                     [
                       _c(
-                        "center",
-                        {},
-                        [
-                          _c("img", {
-                            staticClass: "wow bounceInDown",
-                            staticStyle: { width: "300px", height: "281.34px" },
-                            attrs: { src: "/static/CtrlXApp/images/logo.png" }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "p",
-                            {
-                              staticStyle: {
-                                "font-family": "monospace",
-                                color: "white"
-                              }
-                            },
-                            [
-                              _c("b", [
-                                _vm._v("Empower . Collaborate . Progress")
-                              ])
-                            ]
-                          ),
-                          _c("br"),
-                          _vm._v(" "),
-                          _c(
-                            "v-btn",
-                            {
-                              staticClass:
-                                "font-weight-bold primary wow slideInLeft",
-                              attrs: { round: "" },
-                              on: {
-                                click: function($event) {
-                                  _vm.callToAction = true
-                                }
-                              }
-                            },
-                            [_vm._v("Make an inquiry")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-btn",
-                            {
-                              staticClass:
-                                "font-weight-bold secondary black--text wow slideInRight",
-                              attrs: { round: "" },
-                              on: {
-                                click: function($event) {
-                                  _vm.showJoinForm = true
-                                }
-                              }
-                            },
-                            [_vm._v("join ctrl-x hub")]
-                          ),
-                          _c("br"),
-                          _vm._v(" "),
-                          _c(
-                            "v-btn",
-                            {
-                              staticClass: "primary white--text wow flip",
-                              attrs: {
-                                icon: "",
-                                href: "https://facebook.com/ctrlxhub"
-                              }
-                            },
-                            [
-                              _c("v-icon", { attrs: { color: "#fff" } }, [
-                                _vm._v("fab fa-facebook-f")
-                              ])
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-btn",
-                            {
-                              staticClass: "secondary white--text wow flip",
-                              attrs: {
-                                icon: "",
-                                href: "https://twitter.com/ctrlxhub"
-                              }
-                            },
-                            [
-                              _c("v-icon", { attrs: { color: "#000" } }, [
-                                _vm._v("fab fa-twitter")
-                              ])
-                            ],
-                            1
-                          )
-                        ],
+                        "v-list-tile-action",
+                        [_c("v-icon", [_vm._v("info")])],
                         1
-                      )
+                      ),
+                      _vm._v(" "),
+                      _c("v-list-tile-content", [_c("span", [_vm._v("ABOUT")])])
                     ],
                     1
                   ),
                   _vm._v(" "),
-                  !_vm.$vuetify.breakpoint.xs
-                    ? _c(
-                        "v-flex",
-                        {
-                          staticClass: "white--text",
-                          attrs: { xs12: "", sm6: "" }
-                        },
+                  _c(
+                    "v-list-tile",
+                    {
+                      on: {
+                        click: function($event) {
+                          _vm.$vuetify.goTo("#project-x")
+                          _vm.showDrawer = false
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "v-list-tile-action",
                         [
                           _c(
-                            "v-scroll-y-transition",
-                            { staticStyle: { position: "absolute" } },
+                            "v-avatar",
+                            { attrs: { size: "25" } },
                             [
-                              _vm.jumbo == 1
-                                ? _c(
-                                    "div",
-                                    { staticStyle: { "max-width": "500px" } },
-                                    [
-                                      _c("h2", { staticClass: "display-1" }, [
-                                        _vm._v("Uninterrupted Power Supply")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("div", {
-                                        staticClass: "underline yellow"
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "subheading" },
-                                        [
-                                          _vm._v(
-                                            "Work for 10 hours a day nonstop!"
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                : _vm._e()
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-scroll-y-transition",
-                            { staticStyle: { position: "absolute" } },
-                            [
-                              _vm.jumbo == 2
-                                ? _c(
-                                    "div",
-                                    { staticStyle: { "max-width": "500px" } },
-                                    [
-                                      _c("h2", { staticClass: "display-1" }, [
-                                        _vm._v("Comfortable Working Space")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("div", {
-                                        staticClass: "underline yellow"
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "subheading" },
-                                        [
-                                          _vm._v(
-                                            "Nothing else beats that comfortable yet engaging feeling of an office"
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                : _vm._e()
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-scroll-y-transition",
-                            { staticStyle: { position: "absolute" } },
-                            [
-                              _vm.jumbo == 3
-                                ? _c(
-                                    "div",
-                                    { staticStyle: { "max-width": "500px" } },
-                                    [
-                                      _c("h2", { staticClass: "display-1" }, [
-                                        _vm._v("A Great Community")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("div", {
-                                        staticClass: "underline yellow"
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        { staticClass: "subheading" },
-                                        [
-                                          _vm._v(
-                                            "You get to meet new people from similar and different fields, collaborate and build something new!"
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                : _vm._e()
-                            ]
+                              _c("v-img", {
+                                attrs: {
+                                  src:
+                                    "/static/CtrlXApp/images/project-x-letter.png"
+                                }
+                              })
+                            ],
+                            1
                           )
                         ],
                         1
-                      )
-                    : _vm._e()
+                      ),
+                      _vm._v(" "),
+                      _c("v-list-tile-content", [
+                        _c("span", [_vm._v("PROJECT-X")])
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-tile",
+                    {
+                      on: {
+                        click: function($event) {
+                          _vm.$vuetify.goTo("#services")
+                          _vm.showDrawer = false
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "v-list-tile-action",
+                        [_c("v-icon", [_vm._v("fas fa-briefcase")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("v-list-tile-content", [
+                        _c("span", [_vm._v("SERVICES")])
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-tile",
+                    {
+                      on: {
+                        click: function($event) {
+                          _vm.$vuetify.goTo("#pricing")
+                          _vm.showDrawer = false
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "v-list-tile-action",
+                        [_c("v-icon", [_vm._v("attach_money")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("v-list-tile-content", [
+                        _c("span", [_vm._v("PRICING")])
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-tile",
+                    {
+                      on: {
+                        click: function($event) {
+                          _vm.callToAction = true
+                          _vm.showDrawer = false
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "v-list-tile-action",
+                        [_c("v-icon", [_vm._v("phone")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("v-list-tile-content", [
+                        _c("span", [_vm._v("CONTACT US")])
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-tile",
+                    {
+                      on: {
+                        click: function($event) {
+                          _vm.showJoinForm = true
+                          _vm.showDrawer = false
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "v-list-tile-action",
+                        [_c("v-icon", [_vm._v("arrow_forward")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("v-list-tile-content", [
+                        _c("span", [_vm._v("JOIN US")])
+                      ])
+                    ],
+                    1
+                  )
                 ],
                 1
               )
             ],
             1
-          ),
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "jumbotron" },
+        [
+          _c("v-fade-transition", [
+            _vm.jumbo == 1
+              ? _c("div", { staticClass: "backdrop", attrs: { id: "one" } })
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("v-fade-transition", [
+            _vm.jumbo == 2
+              ? _c("div", { staticClass: "backdrop", attrs: { id: "two" } })
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("v-fade-transition", [
+            _vm.jumbo == 3
+              ? _c("div", { staticClass: "backdrop", attrs: { id: "three" } })
+              : _vm._e()
+          ]),
           _vm._v(" "),
           _c(
-            "div",
+            "v-layout",
+            {
+              staticClass: "py-5",
+              attrs: { row: "", wrap: "", "align-center": "" }
+            },
             [
               _c(
-                "v-fab-transition",
+                "v-flex",
+                { attrs: { xs12: "", sm6: "" } },
                 [
-                  _vm.scrolled
-                    ? _c(
+                  _c(
+                    "center",
+                    {},
+                    [
+                      _c("img", {
+                        staticClass: "wow bounceInDown",
+                        staticStyle: { width: "300px", height: "281.34px" },
+                        attrs: { src: "/static/CtrlXApp/images/logo.png" }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticStyle: {
+                            "font-family": "monospace",
+                            color: "white"
+                          }
+                        },
+                        [_c("b", [_vm._v("Empower . Collaborate . Progress")])]
+                      ),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c(
                         "v-btn",
                         {
-                          attrs: {
-                            fab: "",
-                            bottom: "",
-                            left: "",
-                            fixed: "",
-                            color: "secondary black--text"
-                          },
+                          staticClass:
+                            "font-weight-bold primary wow slideInLeft",
+                          attrs: { round: "" },
                           on: {
                             click: function($event) {
-                              _vm.$vuetify.goTo(0)
+                              _vm.callToAction = true
                             }
                           }
                         },
-                        [_c("v-icon", [_vm._v("keyboard_arrow_up")])],
+                        [_vm._v("Make an inquiry")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          staticClass:
+                            "font-weight-bold secondary black--text wow slideInRight",
+                          attrs: { round: "" },
+                          on: {
+                            click: function($event) {
+                              _vm.showJoinForm = true
+                            }
+                          }
+                        },
+                        [_vm._v("join ctrl-x hub")]
+                      ),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          staticClass: "primary white--text wow flip",
+                          attrs: {
+                            icon: "",
+                            href: "https://facebook.com/ctrlxhub"
+                          }
+                        },
+                        [
+                          _c("v-icon", { attrs: { color: "#fff" } }, [
+                            _vm._v("fab fa-facebook-f")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          staticClass: "secondary white--text wow flip",
+                          attrs: {
+                            icon: "",
+                            href: "https://twitter.com/ctrlxhub"
+                          }
+                        },
+                        [
+                          _c("v-icon", { attrs: { color: "#000" } }, [
+                            _vm._v("fab fa-twitter")
+                          ])
+                        ],
                         1
                       )
-                    : _vm._e()
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              !_vm.$vuetify.breakpoint.xs
+                ? _c(
+                    "v-flex",
+                    {
+                      staticClass: "white--text",
+                      attrs: { xs12: "", sm6: "" }
+                    },
+                    [
+                      _c(
+                        "v-scroll-y-transition",
+                        { staticStyle: { position: "absolute" } },
+                        [
+                          _vm.jumbo == 1
+                            ? _c(
+                                "div",
+                                { staticStyle: { "max-width": "500px" } },
+                                [
+                                  _c("h2", { staticClass: "display-1" }, [
+                                    _vm._v("Uninterrupted Power Supply")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", {
+                                    staticClass: "underline yellow"
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "subheading" }, [
+                                    _vm._v("Work for 10 hours a day nonstop!")
+                                  ])
+                                ]
+                              )
+                            : _vm._e()
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-scroll-y-transition",
+                        { staticStyle: { position: "absolute" } },
+                        [
+                          _vm.jumbo == 2
+                            ? _c(
+                                "div",
+                                { staticStyle: { "max-width": "500px" } },
+                                [
+                                  _c("h2", { staticClass: "display-1" }, [
+                                    _vm._v("Comfortable Working Space")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", {
+                                    staticClass: "underline yellow"
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "subheading" }, [
+                                    _vm._v(
+                                      "Nothing else beats that comfortable yet engaging feeling of an office"
+                                    )
+                                  ])
+                                ]
+                              )
+                            : _vm._e()
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-scroll-y-transition",
+                        { staticStyle: { position: "absolute" } },
+                        [
+                          _vm.jumbo == 3
+                            ? _c(
+                                "div",
+                                { staticStyle: { "max-width": "500px" } },
+                                [
+                                  _c("h2", { staticClass: "display-1" }, [
+                                    _vm._v("A Great Community")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", {
+                                    staticClass: "underline yellow"
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "subheading" }, [
+                                    _vm._v(
+                                      "You get to meet new people from similar and different fields, collaborate and build something new!"
+                                    )
+                                  ])
+                                ]
+                              )
+                            : _vm._e()
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                : _vm._e()
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c(
+            "v-fab-transition",
+            [
+              _vm.scrolled
+                ? _c(
+                    "v-btn",
+                    {
+                      attrs: {
+                        fab: "",
+                        bottom: "",
+                        left: "",
+                        fixed: "",
+                        color: "secondary black--text"
+                      },
+                      on: {
+                        click: function($event) {
+                          _vm.$vuetify.goTo(0)
+                        }
+                      }
+                    },
+                    [_c("v-icon", [_vm._v("keyboard_arrow_up")])],
+                    1
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("v-fab-transition", [
+            _c(
+              "a",
+              { attrs: { href: "https://m.me/ctrlxhub" } },
+              [
+                _c(
+                  "v-btn",
+                  {
+                    attrs: {
+                      fab: "",
+                      bottom: "",
+                      right: "",
+                      fixed: "",
+                      color: "blue white--text"
+                    }
+                  },
+                  [_c("v-icon", [_vm._v("fab fa-facebook-messenger")])],
+                  1
+                )
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "v-container",
+            { attrs: { "grid-list-xl": "" } },
+            [
+              _c(
+                "v-layout",
+                {
+                  attrs: {
+                    wrap: "",
+                    id: "about",
+                    "align-center": "",
+                    "justify-space-around": ""
+                  }
+                },
+                [
+                  _c("v-flex", { attrs: { xs12: "", sm6: "" } }, [
+                    _c("h1", [_vm._v("Who we are")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "underline primary wow" }),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "body-1" }, [
+                      _vm._v(
+                        '\n                        Ctrl-X Hub (pronounced "control ex hub") is a place that provides creatives and techies a conducive and collaborative working environment.\n                    '
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "body-1" }, [
+                      _vm._v(
+                        "\n                        Being an initiative of "
+                      ),
+                      _c("a", { attrs: { href: "https://uzucorp.com" } }, [
+                        _vm._v("The Uzu Corporation")
+                      ]),
+                      _vm._v(
+                        ", Ctrl-X Hub's primary aim is to uplift the tech community here in Owerri and Nigeria in general by providing tech enthusiasts and creatives (graphics designers and media personnel) with the basic necessities needed to boost productivity.\n                    "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "body-1" }, [
+                      _vm._v(
+                        "\n                        We have succeeded in creating a physical meeting point that has brought like minded individuals together\n                    "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-flex",
+                    {
+                      staticClass: "wow fadeInDown",
+                      staticStyle: { height: "300px" },
+                      attrs: {
+                        xs12: "",
+                        sm6: "",
+                        "d-flex": "",
+                        "align-center": ""
+                      }
+                    },
+                    [
+                      !_vm.$vuetify.breakpoint.xs
+                        ? _c("v-flex", { attrs: { xs1: "" } })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c(
+                        "v-flex",
+                        { attrs: { xs12: "", sm10: "" } },
+                        [
+                          _c(
+                            "v-fab-transition",
+                            [
+                              _vm.jumbo == 1
+                                ? _c("v-img", {
+                                    key: 1,
+                                    attrs: {
+                                      src:
+                                        "/static/CtrlXApp/images/coworking.svg"
+                                    }
+                                  })
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.jumbo == 2
+                                ? _c("v-img", {
+                                    key: 2,
+                                    attrs: {
+                                      src:
+                                        "/static/CtrlXApp/images/developer-activity.svg"
+                                    }
+                                  })
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.jumbo == 3
+                                ? _c("v-img", {
+                                    key: 3,
+                                    attrs: {
+                                      src:
+                                        "/static/CtrlXApp/images/work-time.svg"
+                                    }
+                                  })
+                                : _vm._e()
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      !_vm.$vuetify.breakpoint.xs
+                        ? _c("v-flex", { attrs: { xs1: "" } })
+                        : _vm._e()
+                    ],
+                    1
+                  )
                 ],
                 1
               ),
               _vm._v(" "),
               _c(
-                "v-container",
-                { attrs: { "grid-list-xl": "" } },
+                "v-layout",
+                {
+                  staticClass: "mt-4",
+                  attrs: { wrap: "", id: "project-x", "align-center": "" }
+                },
                 [
+                  _vm.$vuetify.breakpoint.xs
+                    ? _c("v-flex", { attrs: { xs12: "" } }, [
+                        _c("h1", [
+                          _vm._v(
+                            "We are building a network of digitally empowered people"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "underline primary wow" })
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
                   _c(
-                    "v-layout",
+                    "v-flex",
                     {
-                      attrs: {
-                        wrap: "",
-                        id: "about",
-                        "align-center": "",
-                        "justify-space-around": ""
-                      }
+                      staticClass: "wow fadeInDown",
+                      attrs: { xs12: "", sm6: "" }
                     },
                     [
-                      _c("v-flex", { attrs: { xs12: "", sm6: "" } }, [
-                        _c("h1", [_vm._v("Who we are")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "underline primary wow" }),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "body-1" }, [
-                          _vm._v(
-                            '\n                        Ctrl-X Hub (pronounced "control ex hub") is a place that provides creatives and techies a conducive and collaborative working environment.\n                    '
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "body-1" }, [
-                          _vm._v(
-                            "\n                        Being an initiative of "
-                          ),
-                          _c("a", { attrs: { href: "https://uzucorp.com" } }, [
-                            _vm._v("The Uzu Corporation")
-                          ]),
-                          _vm._v(
-                            ", Ctrl-X Hub's primary aim is to uplift the tech community here in Owerri and Nigeria in general by providing tech enthusiasts and creatives (graphics designers and media personnel) with the basic necessities needed to boost productivity.\n                    "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "body-1" }, [
-                          _vm._v(
-                            "\n                        We have succeeded in creating a physical meeting point that has brought like minded individuals together\n                    "
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "v-flex",
-                        {
-                          staticClass: "wow fadeInDown",
-                          staticStyle: { height: "300px" },
-                          attrs: {
-                            xs12: "",
-                            sm6: "",
-                            "d-flex": "",
-                            "align-center": ""
-                          }
-                        },
-                        [
-                          _c("v-flex", { attrs: { xs1: "" } }),
-                          _vm._v(" "),
-                          _c(
-                            "v-flex",
-                            { attrs: { xs10: "" } },
-                            [
-                              _c(
-                                "v-fab-transition",
-                                [
-                                  _vm.jumbo == 1
-                                    ? _c("v-img", {
-                                        key: 1,
-                                        attrs: {
-                                          src:
-                                            "/static/CtrlXApp/images/coworking.svg"
-                                        }
-                                      })
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  _vm.jumbo == 2
-                                    ? _c("v-img", {
-                                        key: 2,
-                                        attrs: {
-                                          src:
-                                            "/static/CtrlXApp/images/developer-activity.svg"
-                                        }
-                                      })
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  _vm.jumbo == 3
-                                    ? _c("v-img", {
-                                        key: 3,
-                                        attrs: {
-                                          src:
-                                            "/static/CtrlXApp/images/work-time.svg"
-                                        }
-                                      })
-                                    : _vm._e()
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("v-flex", { attrs: { xs1: "" } })
-                        ],
-                        1
-                      )
+                      _c("v-img", {
+                        attrs: {
+                          src: "/static/CtrlXApp/images/project-x-logo.png"
+                        }
+                      })
                     ],
                     1
                   ),
                   _vm._v(" "),
                   _c(
-                    "v-layout",
-                    {
-                      staticClass: "mt-4",
-                      attrs: { wrap: "", id: "project-x", "align-center": "" }
-                    },
+                    "v-flex",
+                    { attrs: { xs12: "", sm6: "" } },
                     [
-                      _vm.$vuetify.breakpoint.xs
-                        ? _c("v-flex", { attrs: { xs12: "" } }, [
+                      _vm.$vuetify.breakpoint.smAndUp
+                        ? [
                             _c("h1", [
                               _vm._v(
                                 "We are building a network of digitally empowered people"
@@ -1941,1655 +2038,139 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "underline primary wow" })
-                          ])
+                          ]
                         : _vm._e(),
                       _vm._v(" "),
-                      _c(
-                        "v-flex",
-                        {
-                          staticClass: "wow fadeInDown",
-                          attrs: { xs12: "", sm6: "" }
-                        },
-                        [
-                          _c("v-img", {
-                            attrs: {
-                              src: "/static/CtrlXApp/images/project-x-logo.png"
-                            }
-                          })
-                        ],
-                        1
-                      ),
+                      _c("p", { staticClass: "body-1" }, [
+                        _vm._v(
+                          "\n                        Project-X is an initiative tailored to groom newbies in various digital skills. These include\n                    "
+                        )
+                      ]),
                       _vm._v(" "),
-                      _c(
-                        "v-flex",
-                        { attrs: { xs12: "", sm6: "" } },
-                        [
-                          _vm.$vuetify.breakpoint.smAndUp
-                            ? [
-                                _c("h1", [
-                                  _vm._v(
-                                    "We are building a network of digitally empowered people"
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("div", {
-                                  staticClass: "underline primary wow"
-                                })
-                              ]
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "body-1" }, [
-                            _vm._v(
-                              "\n                        Project-X is an initiative tailored to groom newbies in various digital skills. These include\n                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("ul", { staticClass: "body-1" }, [
-                            _c("li", [_vm._v("Web Development")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("Mobile Development")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("Digital Marketing")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("UI/UX Engineering")])
-                          ]),
-                          _c("br"),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "body-1" }, [
-                            _vm._v(
-                              "\n                        This initiative is not just about imparting skills, but also fostering a network of self-employed people. \n                    "
-                            )
-                          ])
-                        ],
-                        2
-                      )
+                      _c("ul", { staticClass: "body-1" }, [
+                        _c("li", [_vm._v("Web Development")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Mobile Development")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Digital Marketing")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("UI/UX Engineering")])
+                      ]),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "body-1" }, [
+                        _vm._v(
+                          "\n                        This initiative is not just about imparting skills, but also fostering a network of self-employed people. \n                    "
+                        )
+                      ])
                     ],
-                    1
-                  ),
-                  _vm._v(" "),
+                    2
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-layout",
+                { attrs: { wrap: "" } },
+                [
                   _c(
-                    "v-layout",
-                    { attrs: { wrap: "" } },
+                    "v-flex",
+                    { staticClass: "wow fadeIn", attrs: { xs12: "", sm6: "" } },
                     [
-                      _c(
-                        "v-flex",
-                        {
-                          staticClass: "wow fadeIn",
-                          attrs: { xs12: "", sm6: "" }
-                        },
-                        [
-                          _c("h2", [_vm._v("Testimonies")]),
-                          _vm._v(" "),
-                          _c("div", {
-                            staticClass: "underline grey darken-4 wow"
-                          }),
-                          _vm._v(" "),
-                          _c("p", [
-                            _vm._v(
-                              "The impact of Project-X on our community has been massive. It has set them on a path to great things. We say thank you to all those who gave a positive feedback."
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("p", [
-                            _vm._v(
-                              "Project-X vows to continue to make such great impacts to the tech community"
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("v-img", {
-                            attrs: {
-                              src: "/static/CtrlXApp/images/workshop1.png"
-                            }
-                          })
-                        ],
-                        1
-                      ),
+                      _c("h2", [_vm._v("Testimonies")]),
                       _vm._v(" "),
-                      _c(
-                        "v-flex",
-                        {
-                          staticClass: "wow fadeInRight",
-                          attrs: { xs12: "", sm6: "", md3: "" }
-                        },
-                        [
-                          _c(
-                            "blockquote",
-                            {
-                              staticClass: "twitter-tweet",
-                              staticStyle: { height: "200px" }
-                            },
-                            [
-                              _c("p", { attrs: { lang: "en", dir: "ltr" } }, [
-                                _vm._v(
-                                  "Participated in Project-X from ctrl-x hub. Learnt the basics of PHP and why liveserver can't run dynamics websites 🤓"
-                                ),
-                                _c(
-                                  "a",
-                                  {
-                                    attrs: {
-                                      href:
-                                        "https://twitter.com/ctrlxhub?ref_src=twsrc%5Etfw"
-                                    }
-                                  },
-                                  [_vm._v("@ctrlxhub")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    attrs: {
-                                      href:
-                                        "https://twitter.com/nimbbly?ref_src=twsrc%5Etfw"
-                                    }
-                                  },
-                                  [_vm._v("@nimbbly")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    attrs: { href: "https://t.co/UO6xPp4mBG" }
-                                  },
-                                  [_vm._v("pic.twitter.com/UO6xPp4mBG")]
-                                )
-                              ]),
-                              _vm._v("— Victor Chukwujama (@ChukwujamaV) "),
-                              _c(
-                                "a",
-                                {
-                                  attrs: {
-                                    href:
-                                      "https://twitter.com/ChukwujamaV/status/1172929997587255299?ref_src=twsrc%5Etfw"
-                                  }
-                                },
-                                [_vm._v("September 14, 2019")]
-                              )
-                            ]
-                          )
-                        ]
-                      ),
+                      _c("div", { staticClass: "underline grey darken-4 wow" }),
                       _vm._v(" "),
-                      !_vm.$vuetify.breakpoint.sm
-                        ? _c(
-                            "v-flex",
-                            {
-                              staticClass: "wow fadeInRight",
-                              attrs: { xs12: "", md3: "" }
-                            },
-                            [
-                              _c(
-                                "blockquote",
-                                {
-                                  staticClass: "twitter-tweet",
-                                  staticStyle: { height: "200px" }
-                                },
-                                [
-                                  _c(
-                                    "p",
-                                    { attrs: { lang: "en", dir: "ltr" } },
-                                    [
-                                      _vm._v(
-                                        "Today was quiet stressful but it was worth it. I had a nice time with "
-                                      ),
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href:
-                                              "https://twitter.com/nimbbly?ref_src=twsrc%5Etfw"
-                                          }
-                                        },
-                                        [_vm._v("@nimbbly")]
-                                      ),
-                                      _vm._v(" and "),
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href:
-                                              "https://twitter.com/ctrlxhub?ref_src=twsrc%5Etfw"
-                                          }
-                                        },
-                                        [_vm._v("@ctrlxhub")]
-                                      ),
-                                      _vm._v(
-                                        " in owerri, Nigeria. Minds were rubbed, ideas shared and information passed on "
-                                      ),
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href:
-                                              "https://twitter.com/hashtag/frontend?src=hash&ref_src=twsrc%5Etfw"
-                                          }
-                                        },
-                                        [_vm._v("#frontend")]
-                                      ),
-                                      _vm._v(" and "),
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href:
-                                              "https://twitter.com/hashtag/backend?src=hash&ref_src=twsrc%5Etfw"
-                                          }
-                                        },
-                                        [_vm._v("#backend")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href:
-                                              "https://twitter.com/hashtag/programming?src=hash&ref_src=twsrc%5Etfw"
-                                          }
-                                        },
-                                        [_vm._v("#programming")]
-                                      ),
-                                      _vm._v(", "),
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href:
-                                              "https://twitter.com/hashtag/DigitalMarketing?src=hash&ref_src=twsrc%5Etfw"
-                                          }
-                                        },
-                                        [_vm._v("#DigitalMarketing")]
-                                      ),
-                                      _vm._v(" and "),
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href:
-                                              "https://twitter.com/hashtag/uidesign?src=hash&ref_src=twsrc%5Etfw"
-                                          }
-                                        },
-                                        [_vm._v("#uidesign")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href:
-                                              "https://twitter.com/hashtag/uxdesign?src=hash&ref_src=twsrc%5Etfw"
-                                          }
-                                        },
-                                        [_vm._v("#uxdesign")]
-                                      ),
-                                      _vm._v(". "),
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href:
-                                              "https://twitter.com/hashtag/thank?src=hash&ref_src=twsrc%5Etfw"
-                                          }
-                                        },
-                                        [_vm._v("#thank")]
-                                      ),
-                                      _vm._v(" you so much "),
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href:
-                                              "https://twitter.com/hashtag/projectx?src=hash&ref_src=twsrc%5Etfw"
-                                          }
-                                        },
-                                        [_vm._v("#projectx")]
-                                      ),
-                                      _vm._v(". "),
-                                      _c(
-                                        "a",
-                                        {
-                                          attrs: {
-                                            href: "https://t.co/y2nCszWDTJ"
-                                          }
-                                        },
-                                        [_vm._v("pic.twitter.com/y2nCszWDTJ")]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(
-                                    "— Chinemerem D. Akwason (@akwasond) "
-                                  ),
-                                  _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href:
-                                          "https://twitter.com/akwasond/status/1172969819647463425?ref_src=twsrc%5Etfw"
-                                      }
-                                    },
-                                    [_vm._v("September 14, 2019")]
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        : _vm._e()
+                      _c("p", [
+                        _vm._v(
+                          "The impact of Project-X on our community has been massive. It has set them on a path to great things. We say thank you to all those who gave a positive feedback."
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "Project-X vows to continue to make such great impacts to the tech community"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("v-img", {
+                        attrs: { src: "/static/CtrlXApp/images/workshop1.png" }
+                      })
                     ],
                     1
                   ),
                   _vm._v(" "),
-                  _c(
-                    "h2",
-                    {
-                      staticClass: "mt-4",
-                      staticStyle: { "font-style": "italic" },
-                      attrs: { id: "services" }
-                    },
-                    [_vm._v("Our Services")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "underline yellow wow" }),
-                  _vm._v(" "),
-                  _c(
-                    "v-layout",
-                    { staticClass: "wow fadeIn", attrs: { wrap: "" } },
-                    [
-                      _c(
-                        "v-flex",
-                        { attrs: { xs12: "", sm6: "", lg3: "" } },
-                        [
-                          _c(
-                            "v-card",
-                            [
-                              _c(
-                                "v-card-text",
-                                [
-                                  _c(
-                                    "center",
-                                    [
-                                      _c(
-                                        "v-avatar",
-                                        { attrs: { size: "200", tile: "" } },
-                                        [
-                                          _c("img", {
-                                            attrs: {
-                                              src:
-                                                "/static/CtrlXApp/images/new-ideas.svg"
-                                            }
-                                          })
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("h3", [
-                                        _vm._v("Uninterrupted Power Supply")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("br"),
-                                      _vm._v(" "),
-                                      _c("span", [
-                                        _vm._v(
-                                          "Consistent power, 10 hours a day, 6 days a week!"
-                                        )
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-flex",
-                        { attrs: { xs12: "", sm6: "", lg3: "" } },
-                        [
-                          _c(
-                            "v-card",
-                            [
-                              _c(
-                                "v-card-text",
-                                [
-                                  _c(
-                                    "center",
-                                    [
-                                      _c(
-                                        "v-avatar",
-                                        { attrs: { size: "200", tile: "" } },
-                                        [
-                                          _c("img", {
-                                            attrs: {
-                                              src:
-                                                "/static/CtrlXApp/images/developer-activity-2.svg"
-                                            }
-                                          })
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("h3", [
-                                        _vm._v("Comfortable working space")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("br"),
-                                      _vm._v(" "),
-                                      _c("span", [
-                                        _vm._v(
-                                          "No destractions. Just relax and do your thing!"
-                                        )
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-flex",
-                        { attrs: { xs12: "", sm6: "", lg3: "" } },
-                        [
-                          _c(
-                            "v-card",
-                            [
-                              _c(
-                                "v-card-text",
-                                [
-                                  _c(
-                                    "center",
-                                    [
-                                      _c(
-                                        "v-avatar",
-                                        { attrs: { size: "200", tile: "" } },
-                                        [
-                                          _c("img", {
-                                            attrs: {
-                                              src:
-                                                "/static/CtrlXApp/images/code-typing.svg"
-                                            }
-                                          })
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("h3", [
-                                        _vm._v("Training and Tech Skillups")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("br"),
-                                      _vm._v(" "),
-                                      _c("span", [
-                                        _vm._v(
-                                          "Tech is the new thing. Learn a skill today!"
-                                        )
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-flex",
-                        { attrs: { xs12: "", sm6: "", lg3: "" } },
-                        [
-                          _c(
-                            "v-card",
-                            [
-                              _c(
-                                "v-card-text",
-                                [
-                                  _c(
-                                    "center",
-                                    [
-                                      _c(
-                                        "v-avatar",
-                                        { attrs: { size: "200", tile: "" } },
-                                        [
-                                          _c("img", {
-                                            attrs: {
-                                              src:
-                                                "/static/CtrlXApp/images/conference-speaker.svg"
-                                            }
-                                          })
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("h3", [
-                                        _vm._v("Events and Conference Hall")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("br"),
-                                      _vm._v(" "),
-                                      _c("span", [
-                                        _vm._v(
-                                          "Host a conference or event at an affordable price!"
-                                        )
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "h2",
-                    {
-                      staticClass: "mt-5",
-                      staticStyle: { "font-style": "italic" },
-                      attrs: { id: "pricing" }
-                    },
-                    [_vm._v("Pricing")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "underline primary wow" }),
-                  _vm._v(" "),
-                  _c(
-                    "v-layout",
-                    { staticClass: "wow fadeIn", attrs: { wrap: "" } },
-                    [
-                      _c(
-                        "v-flex",
-                        { attrs: { xs12: "", sm6: "", lg3: "" } },
-                        [
-                          _c(
-                            "v-card",
-                            {
-                              staticClass: "wow ",
-                              attrs: { color: "primary white--text" }
-                            },
-                            [
-                              _c(
-                                "v-card-text",
-                                [
-                                  _c(
-                                    "center",
-                                    [
-                                      _c("v-img", {
-                                        attrs: {
-                                          src:
-                                            "/static/CtrlXApp/images/naira1.png",
-                                          width: "40"
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-avatar",
-                                        { attrs: { tile: "", size: "100" } },
-                                        [
-                                          _c(
-                                            "h2",
-                                            { staticClass: "display-2" },
-                                            [_vm._v("300")]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("h3", [_vm._v("Daily Plan")])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-flex",
-                        { attrs: { xs12: "", sm6: "", lg3: "" } },
-                        [
-                          _c(
-                            "v-card",
-                            {
-                              staticClass: "wow ",
-                              attrs: { color: "secondary" }
-                            },
-                            [
-                              _c(
-                                "v-card-text",
-                                [
-                                  _c(
-                                    "center",
-                                    [
-                                      _c("v-img", {
-                                        attrs: {
-                                          src:
-                                            "/static/CtrlXApp/images/naira1.png",
-                                          width: "40"
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-avatar",
-                                        { attrs: { tile: "", size: "100" } },
-                                        [
-                                          _c(
-                                            "h2",
-                                            { staticClass: "display-2" },
-                                            [_vm._v("1800")]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("h3", [_vm._v("Weekly Plan")])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-flex",
-                        { attrs: { xs12: "", sm6: "", lg3: "" } },
-                        [
-                          _c(
-                            "v-card",
-                            {
-                              staticClass: "wow ",
-                              attrs: { color: "grey darken-4 white--text" }
-                            },
-                            [
-                              _c(
-                                "v-card-text",
-                                [
-                                  _c(
-                                    "center",
-                                    [
-                                      _c("v-img", {
-                                        attrs: {
-                                          src:
-                                            "/static/CtrlXApp/images/naira1.png",
-                                          width: "40"
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-avatar",
-                                        { attrs: { tile: "", size: "100" } },
-                                        [
-                                          _c(
-                                            "h2",
-                                            { staticClass: "display-2" },
-                                            [_vm._v("3200")]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("h3", [_vm._v("2-Week Plan")])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-flex",
-                        { attrs: { xs12: "", sm6: "", lg3: "" } },
-                        [
-                          _c(
-                            "v-card",
-                            { staticClass: "wow " },
-                            [
-                              _c(
-                                "v-card-text",
-                                [
-                                  _c(
-                                    "center",
-                                    [
-                                      _c("v-img", {
-                                        attrs: {
-                                          src:
-                                            "/static/CtrlXApp/images/naira1.png",
-                                          width: "40"
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-avatar",
-                                        { attrs: { tile: "", size: "100" } },
-                                        [
-                                          _c(
-                                            "h2",
-                                            { staticClass: "display-2" },
-                                            [_vm._v("6000")]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("h3", [_vm._v("Monthly Plan")])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("h2", { staticClass: "mt-5" }, [
-                    _vm._v(
-                      "We have gained the trust for a number of brands and startups"
-                    )
+                  _c("v-flex", { attrs: { xs12: "", sm6: "", md3: "" } }, [
+                    _c("div", {
+                      staticClass: "tweet",
+                      attrs: { id: "tweet-one" }
+                    })
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "underline grey darken-4 wow" }),
-                  _vm._v(" "),
-                  _c(
-                    "v-layout",
-                    {
-                      staticClass: "fadeIn wow",
-                      attrs: { "justify-center": "", "align-center": "" }
-                    },
-                    [
-                      _c(
-                        "v-flex",
-                        { attrs: { xs12: "", sm2: "" } },
-                        [
-                          _c("v-img", {
-                            attrs: { src: "/static/CtrlXApp/images/xyz.jpeg" }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-flex",
-                        { attrs: { xs12: "", sm2: "" } },
-                        [
-                          _c("v-img", {
-                            attrs: {
-                              src: "/static/CtrlXApp/images/records.png"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-flex",
-                        { attrs: { xs12: "", sm2: "" } },
-                        [
-                          _c("v-img", {
-                            attrs: {
-                              src: "/static/CtrlXApp/images/tefemblack.png"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-flex",
-                        { attrs: { xs12: "", sm2: "" } },
-                        [
-                          _c("v-img", {
-                            attrs: {
-                              src: "/static/CtrlXApp/images/nimbbly.png"
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
+                  !_vm.$vuetify.breakpoint.sm
+                    ? _c("v-flex", { attrs: { xs12: "", md3: "" } }, [
+                        _c("div", {
+                          staticClass: "tweet",
+                          attrs: { id: "tweet-two" }
+                        })
+                      ])
+                    : _vm._e()
                 ],
                 1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-footer",
-            { attrs: { height: "auto" } },
-            [
+              ),
+              _vm._v(" "),
               _c(
-                "v-card",
+                "h2",
                 {
-                  staticClass: "py-4",
-                  staticStyle: { width: "100%" },
-                  attrs: { color: "#111", flat: "" }
+                  staticClass: "mt-4",
+                  staticStyle: { "font-style": "italic" },
+                  attrs: { id: "services" }
                 },
-                [
-                  _c(
-                    "v-card-text",
-                    { staticClass: "white--text text-xs-center" },
-                    [
-                      _c(
-                        "v-layout",
-                        { attrs: { row: "", wrap: "" } },
-                        [
-                          _c(
-                            "v-flex",
-                            { attrs: { xs12: "", "d-flex": "", sm4: "" } },
-                            [
-                              _c(
-                                "div",
-                                { staticClass: "text-xs-left" },
-                                [
-                                  _c(
-                                    "v-btn",
-                                    {
-                                      staticClass:
-                                        "primary wow slideInLeft font-weight-bold",
-                                      attrs: { small: "", round: "" },
-                                      on: {
-                                        click: function($event) {
-                                          _vm.callToAction = true
-                                        }
-                                      }
-                                    },
-                                    [_vm._v("Make an inquiry")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-btn",
-                                    {
-                                      staticClass:
-                                        "secondary black--text wow slideInRight font-weight-bold",
-                                      attrs: { small: "", round: "" },
-                                      on: {
-                                        click: function($event) {
-                                          _vm.showJoinForm = true
-                                        }
-                                      }
-                                    },
-                                    [_vm._v("join ctrl-x hub")]
-                                  ),
-                                  _c("br"),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-btn",
-                                    {
-                                      staticClass:
-                                        "primary white--text wow flip",
-                                      attrs: {
-                                        icon: "",
-                                        href: "https://facebook.com/ctrlxhub"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-icon",
-                                        { attrs: { color: "#fff" } },
-                                        [_vm._v("fab fa-facebook-f")]
-                                      )
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "white--text",
-                                      attrs: {
-                                        href: "https://facebook.com/ctrlxhub"
-                                      }
-                                    },
-                                    [_vm._v("facebook.com/ctrlxhub")]
-                                  ),
-                                  _c("br"),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-btn",
-                                    {
-                                      staticClass:
-                                        "secondary white--text wow flip",
-                                      attrs: {
-                                        icon: "",
-                                        href: "https://twitter.com/ctrlxhub"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-icon",
-                                        { attrs: { color: "#000" } },
-                                        [_vm._v("fab fa-twitter")]
-                                      )
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "white--text",
-                                      attrs: {
-                                        href: "https://twitter.com/ctrlxhub"
-                                      }
-                                    },
-                                    [_vm._v("twitter.com/ctrlxhub")]
-                                  ),
-                                  _c("br"),
-                                  _vm._v(" "),
-                                  _vm.$vuetify.breakpoint.xs
-                                    ? _c("iframe", {
-                                        staticClass: "mb-3",
-                                        staticStyle: {
-                                          border: "0",
-                                          width: "100%"
-                                        },
-                                        attrs: {
-                                          src:
-                                            "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15889.005274672933!2d6.9975476!3d5.3786015!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x175ac80138a1fa59!2sCtrl-X%20Hub!5e0!3m2!1sen!2sng!4v1570587514068!5m2!1sen!2sng",
-                                          height: "450",
-                                          frameborder: "0",
-                                          allowfullscreen: ""
-                                        }
-                                      })
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  _c(
-                                    "h3",
-                                    { staticClass: "body-2 text-xs-center" },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "white--text",
-                                          attrs: {
-                                            href: "https://www.uzucorp.com"
-                                          }
-                                        },
-                                        [
-                                          _c("em", [
-                                            _c("img", {
-                                              staticStyle: { width: "150px" },
-                                              attrs: {
-                                                src:
-                                                  "/static/CtrlXApp/images/uzucorpwhitetrans.png"
-                                              }
-                                            }),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _vm._v(
-                                                "Rapidly developed by uzucorp"
-                                              )
-                                            ])
-                                          ])
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "h3",
-                                    { staticClass: "body-2 text-xs-center" },
-                                    [_c("em", [_vm._v("Ctrl-X Hub © 2019")])]
-                                  )
-                                ],
-                                1
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-flex",
-                            { attrs: { xs12: "", sm4: "" } },
-                            [
-                              _c(
-                                "v-list",
-                                {
-                                  staticStyle: { background: "transparent" },
-                                  attrs: { dark: "" }
-                                },
-                                [
-                                  _c(
-                                    "v-list-tile",
-                                    {
-                                      on: {
-                                        click: function($event) {
-                                          _vm.$vuetify.goTo("#about")
-                                          _vm.showDrawer = false
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-list-tile-action",
-                                        [_c("v-icon", [_vm._v("info")])],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c("v-list-tile-content", [
-                                        _c("span", [_vm._v("ABOUT")])
-                                      ])
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-list-tile",
-                                    {
-                                      on: {
-                                        click: function($event) {
-                                          _vm.$vuetify.goTo("#project-x")
-                                          _vm.showDrawer = false
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-list-tile-action",
-                                        [
-                                          _c(
-                                            "v-avatar",
-                                            { attrs: { size: "25" } },
-                                            [
-                                              _c("v-img", {
-                                                attrs: {
-                                                  src:
-                                                    "/static/CtrlXApp/images/project-x-letter.png"
-                                                }
-                                              })
-                                            ],
-                                            1
-                                          )
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c("v-list-tile-content", [
-                                        _c("span", [_vm._v("PROJECT-X")])
-                                      ])
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-list-tile",
-                                    {
-                                      on: {
-                                        click: function($event) {
-                                          _vm.$vuetify.goTo("#services")
-                                          _vm.showDrawer = false
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-list-tile-action",
-                                        [
-                                          _c("v-icon", [
-                                            _vm._v("fas fa-briefcase")
-                                          ])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c("v-list-tile-content", [
-                                        _c("span", [_vm._v("SERVICES")])
-                                      ])
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-list-tile",
-                                    {
-                                      on: {
-                                        click: function($event) {
-                                          _vm.$vuetify.goTo("#pricing")
-                                          _vm.showDrawer = false
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-list-tile-action",
-                                        [
-                                          _c("v-icon", [_vm._v("attach_money")])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c("v-list-tile-content", [
-                                        _c("span", [_vm._v("PRICING")])
-                                      ])
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-list-tile",
-                                    {
-                                      on: {
-                                        click: function($event) {
-                                          _vm.callToAction = true
-                                          _vm.showDrawer = false
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-list-tile-action",
-                                        [_c("v-icon", [_vm._v("phone")])],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c("v-list-tile-content", [
-                                        _c("span", [_vm._v("CONTACT US")])
-                                      ])
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-list-tile",
-                                    {
-                                      on: {
-                                        click: function($event) {
-                                          _vm.showJoinForm = true
-                                          _vm.showDrawer = false
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-list-tile-action",
-                                        [
-                                          _c("v-icon", [
-                                            _vm._v("arrow_forward")
-                                          ])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c("v-list-tile-content", [
-                                        _c("span", [_vm._v("JOIN US")])
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _vm.$vuetify.breakpoint.smAndUp
-                            ? _c(
-                                "v-flex",
-                                { attrs: { xs12: "", "d-flex": "", sm4: "" } },
-                                [
-                                  _c("iframe", {
-                                    staticStyle: { border: "0" },
-                                    attrs: {
-                                      src:
-                                        "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15889.005274672933!2d6.9975476!3d5.3786015!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x175ac80138a1fa59!2sCtrl-X%20Hub!5e0!3m2!1sen!2sng!4v1570587514068!5m2!1sen!2sng",
-                                      width: "600",
-                                      height: "450",
-                                      frameborder: "0",
-                                      allowfullscreen: ""
-                                    }
-                                  })
-                                ]
-                              )
-                            : _vm._e()
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-dialog",
-            {
-              attrs: { width: "350" },
-              model: {
-                value: _vm.callToAction,
-                callback: function($$v) {
-                  _vm.callToAction = $$v
-                },
-                expression: "callToAction"
-              }
-            },
-            [
+                [_vm._v("Our Services")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "underline yellow wow" }),
+              _vm._v(" "),
               _c(
-                "v-card",
+                "v-layout",
+                { staticClass: "wow fadeIn", attrs: { wrap: "" } },
                 [
                   _c(
-                    "v-card-text",
+                    "v-flex",
+                    { attrs: { xs12: "", sm6: "", lg3: "" } },
                     [
                       _c(
-                        "v-list",
+                        "v-card",
                         [
                           _c(
-                            "v-list-tile",
-                            {
-                              attrs: { ripple: "", href: "tel:+2348131651917" }
-                            },
-                            [
-                              _c(
-                                "v-avatar",
-                                [_c("v-icon", [_vm._v("phone")])],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c("span", [_vm._v("Phone 1: +2348131651917")])
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("v-divider", { attrs: { inset: "" } }),
-                          _vm._v(" "),
-                          _c(
-                            "v-list-tile",
-                            {
-                              attrs: { ripple: "", href: "tel:+2348115716657" }
-                            },
-                            [
-                              _c(
-                                "v-avatar",
-                                [_c("v-icon", [_vm._v("phone")])],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c("span", [_vm._v("Phone 2: +2348115716657")])
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("v-divider", { attrs: { inset: "" } }),
-                          _vm._v(" "),
-                          _c(
-                            "v-list-tile",
-                            { attrs: { href: "https://m.me/ctrlxhub" } },
-                            [
-                              _c(
-                                "v-avatar",
-                                [
-                                  _c("v-icon", [
-                                    _vm._v("fab fa-facebook-messenger")
-                                  ])
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c("span", [_vm._v(" Reach us on Messenger")])
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-dialog",
-            {
-              attrs: { persistent: "", width: "300" },
-              model: {
-                value: _vm.showJoinForm,
-                callback: function($$v) {
-                  _vm.showJoinForm = $$v
-                },
-                expression: "showJoinForm"
-              }
-            },
-            [
-              _c(
-                "v-card",
-                [
-                  _c(
-                    "v-card-text",
-                    [
-                      _c(
-                        "v-layout",
-                        { attrs: { "align-center": "" } },
-                        [
-                          _c(
-                            "h2",
-                            { staticClass: "subheading font-weight-bold" },
-                            [_vm._v("Join us")]
-                          ),
-                          _vm._v(" "),
-                          _c("v-spacer"),
-                          _vm._v(" "),
-                          _c(
-                            "v-btn",
-                            {
-                              staticStyle: { float: "right" },
-                              attrs: { icon: "" },
-                              on: {
-                                click: function($event) {
-                                  _vm.showJoinForm = false
-                                }
-                              }
-                            },
-                            [_c("v-icon", [_vm._v("close")])],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-window",
-                        {
-                          attrs: { touchless: "" },
-                          model: {
-                            value: _vm.windows,
-                            callback: function($$v) {
-                              _vm.windows = $$v
-                            },
-                            expression: "windows"
-                          }
-                        },
-                        [
-                          _c(
-                            "v-window-item",
-                            { key: 0 },
-                            [
-                              _c(
-                                "v-form",
-                                {
-                                  ref: "form0",
-                                  on: {
-                                    submit: function($event) {
-                                      $event.preventDefault()
-                                      _vm.next(0)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c("v-text-field", {
-                                    attrs: {
-                                      rules: [_vm.$requiredRule],
-                                      label: "Full Name",
-                                      "prepend-icon": "person_outline"
-                                    },
-                                    model: {
-                                      value: _vm.name,
-                                      callback: function($$v) {
-                                        _vm.name = $$v
-                                      },
-                                      expression: "name"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("v-text-field", {
-                                    attrs: {
-                                      rules: [
-                                        _vm.$requiredRule,
-                                        _vm.$emailRule
-                                      ],
-                                      label: "Email",
-                                      "prepend-icon": "mail_outline"
-                                    },
-                                    model: {
-                                      value: _vm.email,
-                                      callback: function($$v) {
-                                        _vm.email = $$v
-                                      },
-                                      expression: "email"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("v-text-field", {
-                                    attrs: {
-                                      rules: [
-                                        _vm.$requiredRule,
-                                        _vm.$nigerianPhoneRule
-                                      ],
-                                      label: "Phone",
-                                      "prepend-icon": "phone"
-                                    },
-                                    model: {
-                                      value: _vm.phone,
-                                      callback: function($$v) {
-                                        _vm.phone = $$v
-                                      },
-                                      expression: "phone"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-btn",
-                                    {
-                                      attrs: {
-                                        color: "primary",
-                                        small: "",
-                                        round: "",
-                                        type: "submit"
-                                      }
-                                    },
-                                    [_vm._v("Next")]
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-window-item",
-                            { key: 1 },
-                            [
-                              _c(
-                                "v-form",
-                                {
-                                  ref: "form3",
-                                  on: {
-                                    submit: function($event) {
-                                      $event.preventDefault()
-                                      return _vm.join($event)
-                                    }
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                            What skills do you have interest in?\n                            "
-                                  ),
-                                  _c("v-checkbox", {
-                                    attrs: { label: "Web Development" },
-                                    model: {
-                                      value: _vm.webDev,
-                                      callback: function($$v) {
-                                        _vm.webDev = $$v
-                                      },
-                                      expression: "webDev"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("v-checkbox", {
-                                    attrs: { label: "Mobile App Development" },
-                                    model: {
-                                      value: _vm.mobileDev,
-                                      callback: function($$v) {
-                                        _vm.mobileDev = $$v
-                                      },
-                                      expression: "mobileDev"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("v-checkbox", {
-                                    attrs: { label: "Digital Marketing" },
-                                    model: {
-                                      value: _vm.digitalMarketing,
-                                      callback: function($$v) {
-                                        _vm.digitalMarketing = $$v
-                                      },
-                                      expression: "digitalMarketing"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("v-checkbox", {
-                                    attrs: { label: "Content Development" },
-                                    model: {
-                                      value: _vm.contentDev,
-                                      callback: function($$v) {
-                                        _vm.contentDev = $$v
-                                      },
-                                      expression: "contentDev"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-select",
-                                    {
-                                      attrs: {
-                                        rules: [_vm.$requiredRule],
-                                        label:
-                                          "How did you get to know about us?",
-                                        items: [
-                                          "Social Media",
-                                          "From a friend",
-                                          "A poster, ticket or banner"
-                                        ]
-                                      },
-                                      model: {
-                                        value: _vm.reference,
-                                        callback: function($$v) {
-                                          _vm.reference = $$v
-                                        },
-                                        expression: "reference"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass: "font-weight-bold title",
-                                          attrs: { slot: "prepend" },
-                                          slot: "prepend"
-                                        },
-                                        [_vm._v("?")]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _vm.reference == "From a friend"
-                                    ? _c("v-text-field", {
-                                        attrs: {
-                                          rules: [_vm.$requiredRule],
-                                          label: "Your Friend's Name",
-                                          "prepend-icon": "person_outline"
-                                        },
-                                        model: {
-                                          value: _vm.friend,
-                                          callback: function($$v) {
-                                            _vm.friend = $$v
-                                          },
-                                          expression: "friend"
-                                        }
-                                      })
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-btn",
-                                    {
-                                      attrs: {
-                                        color: "primary",
-                                        small: "",
-                                        round: "",
-                                        type: "submit",
-                                        loading: _vm.joining
-                                      }
-                                    },
-                                    [_vm._v("Go")]
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-window-item",
-                            { key: 2 },
+                            "v-card-text",
                             [
                               _c(
                                 "center",
                                 [
                                   _c(
                                     "v-avatar",
-                                    { staticClass: "primary mb-2" },
+                                    { attrs: { size: "200", tile: "" } },
                                     [
-                                      _c("v-icon", { attrs: { dark: "" } }, [
-                                        _vm._v("done")
-                                      ])
-                                    ],
-                                    1
+                                      _c("img", {
+                                        attrs: {
+                                          src:
+                                            "/static/CtrlXApp/images/new-ideas.svg"
+                                        }
+                                      })
+                                    ]
                                   ),
-                                  _c("br"),
                                   _vm._v(" "),
-                                  _c("span", { staticClass: "title" }, [
-                                    _vm._v("Welcome to Ctrl-X Hub")
+                                  _c("h3", [
+                                    _vm._v("Uninterrupted Power Supply")
                                   ]),
+                                  _vm._v(" "),
                                   _c("br"),
                                   _vm._v(" "),
                                   _c("span", [
                                     _vm._v(
-                                      "You will recieve an email from us shortly"
+                                      "Consistent power, 10 hours a day, 6 days a week!"
                                     )
                                   ])
                                 ],
@@ -3600,13 +2181,426 @@ var render = function() {
                           )
                         ],
                         1
-                      ),
-                      _vm._v(" "),
-                      _c("v-progress-linear", {
-                        attrs: {
-                          value: (_vm.windows / 2) * 100,
-                          indeterminate: _vm.joining
-                        }
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-flex",
+                    { attrs: { xs12: "", sm6: "", lg3: "" } },
+                    [
+                      _c(
+                        "v-card",
+                        [
+                          _c(
+                            "v-card-text",
+                            [
+                              _c(
+                                "center",
+                                [
+                                  _c(
+                                    "v-avatar",
+                                    { attrs: { size: "200", tile: "" } },
+                                    [
+                                      _c("img", {
+                                        attrs: {
+                                          src:
+                                            "/static/CtrlXApp/images/developer-activity-2.svg"
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("h3", [
+                                    _vm._v("Comfortable working space")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("br"),
+                                  _vm._v(" "),
+                                  _c("span", [
+                                    _vm._v(
+                                      "No destractions. Just relax and do your thing!"
+                                    )
+                                  ])
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-flex",
+                    { attrs: { xs12: "", sm6: "", lg3: "" } },
+                    [
+                      _c(
+                        "v-card",
+                        [
+                          _c(
+                            "v-card-text",
+                            [
+                              _c(
+                                "center",
+                                [
+                                  _c(
+                                    "v-avatar",
+                                    { attrs: { size: "200", tile: "" } },
+                                    [
+                                      _c("img", {
+                                        attrs: {
+                                          src:
+                                            "/static/CtrlXApp/images/code-typing.svg"
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("h3", [
+                                    _vm._v("Training and Tech Skillups")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("br"),
+                                  _vm._v(" "),
+                                  _c("span", [
+                                    _vm._v(
+                                      "Tech is the new thing. Learn a skill today!"
+                                    )
+                                  ])
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-flex",
+                    { attrs: { xs12: "", sm6: "", lg3: "" } },
+                    [
+                      _c(
+                        "v-card",
+                        [
+                          _c(
+                            "v-card-text",
+                            [
+                              _c(
+                                "center",
+                                [
+                                  _c(
+                                    "v-avatar",
+                                    { attrs: { size: "200", tile: "" } },
+                                    [
+                                      _c("img", {
+                                        attrs: {
+                                          src:
+                                            "/static/CtrlXApp/images/conference-speaker.svg"
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("h3", [
+                                    _vm._v("Events and Conference Hall")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("br"),
+                                  _vm._v(" "),
+                                  _c("span", [
+                                    _vm._v(
+                                      "Host a conference or event at an affordable price!"
+                                    )
+                                  ])
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "h2",
+                {
+                  staticClass: "mt-5",
+                  staticStyle: { "font-style": "italic" },
+                  attrs: { id: "pricing" }
+                },
+                [_vm._v("Pricing")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "underline primary wow" }),
+              _vm._v(" "),
+              _c(
+                "v-layout",
+                { attrs: { wrap: "" } },
+                [
+                  _c(
+                    "v-flex",
+                    { attrs: { xs12: "", sm6: "", lg3: "" } },
+                    [
+                      _c(
+                        "v-card",
+                        {
+                          staticClass: "wow fadeIn",
+                          attrs: { color: "primary white--text" }
+                        },
+                        [
+                          _c(
+                            "v-card-text",
+                            [
+                              _c(
+                                "center",
+                                [
+                                  _c("v-img", {
+                                    attrs: {
+                                      src: "/static/CtrlXApp/images/naira1.png",
+                                      width: "40"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-avatar",
+                                    { attrs: { tile: "", size: "100" } },
+                                    [
+                                      _c("h2", { staticClass: "display-2" }, [
+                                        _vm._v("300")
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("h3", [_vm._v("Daily Plan")])
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-flex",
+                    { attrs: { xs12: "", sm6: "", lg3: "" } },
+                    [
+                      _c(
+                        "v-card",
+                        {
+                          staticClass: "wow fadeIn",
+                          attrs: { color: "secondary" }
+                        },
+                        [
+                          _c(
+                            "v-card-text",
+                            [
+                              _c(
+                                "center",
+                                [
+                                  _c("v-img", {
+                                    attrs: {
+                                      src: "/static/CtrlXApp/images/naira1.png",
+                                      width: "40"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-avatar",
+                                    { attrs: { tile: "", size: "100" } },
+                                    [
+                                      _c("h2", { staticClass: "display-2" }, [
+                                        _vm._v("1800")
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("h3", [_vm._v("Weekly Plan")])
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-flex",
+                    { attrs: { xs12: "", sm6: "", lg3: "" } },
+                    [
+                      _c(
+                        "v-card",
+                        {
+                          staticClass: "wow fadeIn",
+                          attrs: { color: "grey darken-4 white--text" }
+                        },
+                        [
+                          _c(
+                            "v-card-text",
+                            [
+                              _c(
+                                "center",
+                                [
+                                  _c("v-img", {
+                                    attrs: {
+                                      src: "/static/CtrlXApp/images/naira1.png",
+                                      width: "40"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-avatar",
+                                    { attrs: { tile: "", size: "100" } },
+                                    [
+                                      _c("h2", { staticClass: "display-2" }, [
+                                        _vm._v("3200")
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("h3", [_vm._v("2-Week Plan")])
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-flex",
+                    { attrs: { xs12: "", sm6: "", lg3: "" } },
+                    [
+                      _c(
+                        "v-card",
+                        { staticClass: "wow fadeIn" },
+                        [
+                          _c(
+                            "v-card-text",
+                            [
+                              _c(
+                                "center",
+                                [
+                                  _c("v-img", {
+                                    attrs: {
+                                      src: "/static/CtrlXApp/images/naira1.png",
+                                      width: "40"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-avatar",
+                                    { attrs: { tile: "", size: "100" } },
+                                    [
+                                      _c("h2", { staticClass: "display-2" }, [
+                                        _vm._v("6000")
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("h3", [_vm._v("Monthly Plan")])
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("h2", { staticClass: "mt-5" }, [
+                _vm._v(
+                  "We have gained the trust for a number of brands and startups"
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "underline grey darken-4 wow" }),
+              _vm._v(" "),
+              _c(
+                "v-layout",
+                {
+                  staticClass: "fadeIn wow",
+                  attrs: { "justify-center": "", "align-center": "" }
+                },
+                [
+                  _c(
+                    "v-flex",
+                    { attrs: { xs12: "", sm2: "" } },
+                    [
+                      _c("v-img", {
+                        attrs: { src: "/static/CtrlXApp/images/xyz.jpeg" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-flex",
+                    { attrs: { xs12: "", sm2: "" } },
+                    [
+                      _c("v-img", {
+                        attrs: { src: "/static/CtrlXApp/images/records.png" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-flex",
+                    { attrs: { xs12: "", sm2: "" } },
+                    [
+                      _c("v-img", {
+                        attrs: { src: "/static/CtrlXApp/images/tefemblack.png" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-flex",
+                    { attrs: { xs12: "", sm2: "" } },
+                    [
+                      _c("v-img", {
+                        attrs: { src: "/static/CtrlXApp/images/nimbbly.png" }
                       })
                     ],
                     1
@@ -3616,54 +2610,581 @@ var render = function() {
               )
             ],
             1
-          ),
-          _vm._v(" "),
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-footer",
+        { attrs: { height: "auto" } },
+        [
           _c(
-            "v-snackbar",
+            "v-card",
             {
-              attrs: { bottom: "", right: _vm.$vuetify.breakpoint.smAndUp },
-              model: {
-                value: _vm.showSnackbar,
-                callback: function($$v) {
-                  _vm.showSnackbar = $$v
-                },
-                expression: "showSnackbar"
-              }
+              staticClass: "pb-5 pt-4",
+              staticStyle: { width: "100%" },
+              attrs: { color: "#111", flat: "" }
             },
             [
               _c(
-                "span",
+                "v-card-text",
+                { staticClass: "white--text text-xs-center" },
                 [
                   _c(
-                    "v-icon",
-                    {
-                      staticClass: "ml-2",
-                      attrs: { color: _vm.snackbarMessage.iconColor }
-                    },
-                    [_vm._v(_vm._s(_vm.snackbarMessage.icon))]
-                  ),
-                  _vm._v(
-                    "\n            " +
-                      _vm._s(_vm.snackbarMessage.message) +
-                      "\n        "
+                    "v-layout",
+                    { attrs: { row: "", wrap: "" } },
+                    [
+                      _c(
+                        "v-flex",
+                        { attrs: { xs12: "", "d-flex": "", sm4: "" } },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "text-xs-left" },
+                            [
+                              _c(
+                                "v-btn",
+                                {
+                                  staticClass:
+                                    "primary wow slideInLeft font-weight-bold",
+                                  attrs: { small: "", round: "" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.callToAction = true
+                                    }
+                                  }
+                                },
+                                [_vm._v("Make an inquiry")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-btn",
+                                {
+                                  staticClass:
+                                    "secondary black--text wow slideInRight font-weight-bold",
+                                  attrs: { small: "", round: "" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.showJoinForm = true
+                                    }
+                                  }
+                                },
+                                [_vm._v("join ctrl-x hub")]
+                              ),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c(
+                                "v-btn",
+                                {
+                                  staticClass: "primary white--text wow flip",
+                                  attrs: {
+                                    icon: "",
+                                    href: "https://facebook.com/ctrlxhub"
+                                  }
+                                },
+                                [
+                                  _c("v-icon", { attrs: { color: "#fff" } }, [
+                                    _vm._v("fab fa-facebook-f")
+                                  ])
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "white--text",
+                                  attrs: {
+                                    href: "https://facebook.com/ctrlxhub"
+                                  }
+                                },
+                                [_vm._v("facebook.com/ctrlxhub")]
+                              ),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c(
+                                "v-btn",
+                                {
+                                  staticClass: "secondary white--text wow flip",
+                                  attrs: {
+                                    icon: "",
+                                    href: "https://twitter.com/ctrlxhub"
+                                  }
+                                },
+                                [
+                                  _c("v-icon", { attrs: { color: "#000" } }, [
+                                    _vm._v("fab fa-twitter")
+                                  ])
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "white--text",
+                                  attrs: {
+                                    href: "https://twitter.com/ctrlxhub"
+                                  }
+                                },
+                                [_vm._v("twitter.com/ctrlxhub")]
+                              ),
+                              _c("br"),
+                              _vm._v(" "),
+                              _vm.$vuetify.breakpoint.xs
+                                ? [
+                                    _c(
+                                      "v-list",
+                                      {
+                                        staticStyle: {
+                                          background: "transparent"
+                                        },
+                                        attrs: { dark: "" }
+                                      },
+                                      [
+                                        _c(
+                                          "v-list-tile",
+                                          {
+                                            on: {
+                                              click: function($event) {
+                                                _vm.$vuetify.goTo("#about")
+                                                _vm.showDrawer = false
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "v-list-tile-action",
+                                              [_c("v-icon", [_vm._v("info")])],
+                                              1
+                                            ),
+                                            _vm._v(" "),
+                                            _c("v-list-tile-content", [
+                                              _c("span", [_vm._v("ABOUT")])
+                                            ])
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-list-tile",
+                                          {
+                                            on: {
+                                              click: function($event) {
+                                                _vm.$vuetify.goTo("#project-x")
+                                                _vm.showDrawer = false
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "v-list-tile-action",
+                                              [
+                                                _c(
+                                                  "v-avatar",
+                                                  { attrs: { size: "25" } },
+                                                  [
+                                                    _c("v-img", {
+                                                      attrs: {
+                                                        src:
+                                                          "/static/CtrlXApp/images/project-x-letter.png"
+                                                      }
+                                                    })
+                                                  ],
+                                                  1
+                                                )
+                                              ],
+                                              1
+                                            ),
+                                            _vm._v(" "),
+                                            _c("v-list-tile-content", [
+                                              _c("span", [_vm._v("PROJECT-X")])
+                                            ])
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-list-tile",
+                                          {
+                                            on: {
+                                              click: function($event) {
+                                                _vm.$vuetify.goTo("#services")
+                                                _vm.showDrawer = false
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "v-list-tile-action",
+                                              [
+                                                _c("v-icon", [
+                                                  _vm._v("fas fa-briefcase")
+                                                ])
+                                              ],
+                                              1
+                                            ),
+                                            _vm._v(" "),
+                                            _c("v-list-tile-content", [
+                                              _c("span", [_vm._v("SERVICES")])
+                                            ])
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-list-tile",
+                                          {
+                                            on: {
+                                              click: function($event) {
+                                                _vm.$vuetify.goTo("#pricing")
+                                                _vm.showDrawer = false
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "v-list-tile-action",
+                                              [
+                                                _c("v-icon", [
+                                                  _vm._v("attach_money")
+                                                ])
+                                              ],
+                                              1
+                                            ),
+                                            _vm._v(" "),
+                                            _c("v-list-tile-content", [
+                                              _c("span", [_vm._v("PRICING")])
+                                            ])
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-list-tile",
+                                          {
+                                            on: {
+                                              click: function($event) {
+                                                _vm.callToAction = true
+                                                _vm.showDrawer = false
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "v-list-tile-action",
+                                              [_c("v-icon", [_vm._v("phone")])],
+                                              1
+                                            ),
+                                            _vm._v(" "),
+                                            _c("v-list-tile-content", [
+                                              _c("span", [_vm._v("CONTACT US")])
+                                            ])
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-list-tile",
+                                          {
+                                            on: {
+                                              click: function($event) {
+                                                _vm.showJoinForm = true
+                                                _vm.showDrawer = false
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "v-list-tile-action",
+                                              [
+                                                _c("v-icon", [
+                                                  _vm._v("arrow_forward")
+                                                ])
+                                              ],
+                                              1
+                                            ),
+                                            _vm._v(" "),
+                                            _c("v-list-tile-content", [
+                                              _c("span", [_vm._v("JOIN US")])
+                                            ])
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c("iframe", {
+                                      staticClass: "mb-3",
+                                      staticStyle: {
+                                        border: "0",
+                                        width: "100%"
+                                      },
+                                      attrs: {
+                                        src:
+                                          "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15889.005274672933!2d6.9975476!3d5.3786015!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x175ac80138a1fa59!2sCtrl-X%20Hub!5e0!3m2!1sen!2sng!4v1570587514068!5m2!1sen!2sng",
+                                        height: "450",
+                                        frameborder: "0",
+                                        allowfullscreen: ""
+                                      }
+                                    })
+                                  ]
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c(
+                                "h3",
+                                { staticClass: "body-2 text-xs-center" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "white--text",
+                                      attrs: { href: "https://www.uzucorp.com" }
+                                    },
+                                    [
+                                      _c("em", [
+                                        _c("img", {
+                                          staticStyle: { width: "150px" },
+                                          attrs: {
+                                            src:
+                                              "/static/CtrlXApp/images/uzucorpwhitetrans.png"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c("p", [
+                                          _vm._v("Rapidly developed by uzucorp")
+                                        ])
+                                      ])
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "h3",
+                                { staticClass: "body-2 text-xs-center" },
+                                [_c("em", [_vm._v("Ctrl-X Hub © 2019")])]
+                              )
+                            ],
+                            2
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm.$vuetify.breakpoint.smAndUp
+                        ? [
+                            _c(
+                              "v-flex",
+                              { attrs: { xs12: "", sm4: "" } },
+                              [
+                                _c(
+                                  "v-list",
+                                  {
+                                    staticStyle: { background: "transparent" },
+                                    attrs: { dark: "" }
+                                  },
+                                  [
+                                    _c(
+                                      "v-list-tile",
+                                      {
+                                        on: {
+                                          click: function($event) {
+                                            _vm.$vuetify.goTo("#about")
+                                            _vm.showDrawer = false
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "v-list-tile-action",
+                                          [_c("v-icon", [_vm._v("info")])],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c("v-list-tile-content", [
+                                          _c("span", [_vm._v("ABOUT")])
+                                        ])
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-list-tile",
+                                      {
+                                        on: {
+                                          click: function($event) {
+                                            _vm.$vuetify.goTo("#project-x")
+                                            _vm.showDrawer = false
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "v-list-tile-action",
+                                          [
+                                            _c(
+                                              "v-avatar",
+                                              { attrs: { size: "25" } },
+                                              [
+                                                _c("v-img", {
+                                                  attrs: {
+                                                    src:
+                                                      "/static/CtrlXApp/images/project-x-letter.png"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c("v-list-tile-content", [
+                                          _c("span", [_vm._v("PROJECT-X")])
+                                        ])
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-list-tile",
+                                      {
+                                        on: {
+                                          click: function($event) {
+                                            _vm.$vuetify.goTo("#services")
+                                            _vm.showDrawer = false
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "v-list-tile-action",
+                                          [
+                                            _c("v-icon", [
+                                              _vm._v("fas fa-briefcase")
+                                            ])
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c("v-list-tile-content", [
+                                          _c("span", [_vm._v("SERVICES")])
+                                        ])
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-list-tile",
+                                      {
+                                        on: {
+                                          click: function($event) {
+                                            _vm.$vuetify.goTo("#pricing")
+                                            _vm.showDrawer = false
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "v-list-tile-action",
+                                          [
+                                            _c("v-icon", [
+                                              _vm._v("attach_money")
+                                            ])
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c("v-list-tile-content", [
+                                          _c("span", [_vm._v("PRICING")])
+                                        ])
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-list-tile",
+                                      {
+                                        on: {
+                                          click: function($event) {
+                                            _vm.callToAction = true
+                                            _vm.showDrawer = false
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "v-list-tile-action",
+                                          [_c("v-icon", [_vm._v("phone")])],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c("v-list-tile-content", [
+                                          _c("span", [_vm._v("CONTACT US")])
+                                        ])
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-list-tile",
+                                      {
+                                        on: {
+                                          click: function($event) {
+                                            _vm.showJoinForm = true
+                                            _vm.showDrawer = false
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "v-list-tile-action",
+                                          [
+                                            _c("v-icon", [
+                                              _vm._v("arrow_forward")
+                                            ])
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c("v-list-tile-content", [
+                                          _c("span", [_vm._v("JOIN US")])
+                                        ])
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-flex",
+                              { attrs: { xs12: "", "d-flex": "", sm4: "" } },
+                              [
+                                _c("iframe", {
+                                  staticStyle: { border: "0" },
+                                  attrs: {
+                                    src:
+                                      "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15889.005274672933!2d6.9975476!3d5.3786015!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x175ac80138a1fa59!2sCtrl-X%20Hub!5e0!3m2!1sen!2sng!4v1570587514068!5m2!1sen!2sng",
+                                    width: "600",
+                                    height: "450",
+                                    frameborder: "0",
+                                    allowfullscreen: ""
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        : _vm._e()
+                    ],
+                    2
                   )
                 ],
-                1
-              ),
-              _vm._v(" "),
-              _c("spacer"),
-              _vm._v(" "),
-              _c(
-                "v-btn",
-                {
-                  attrs: { icon: "" },
-                  on: {
-                    click: function($event) {
-                      _vm.showSnackbar = false
-                    }
-                  }
-                },
-                [_c("v-icon", [_vm._v("close")])],
                 1
               )
             ],
@@ -3671,8 +3192,488 @@ var render = function() {
           )
         ],
         1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-dialog",
+        {
+          attrs: { width: "350" },
+          model: {
+            value: _vm.callToAction,
+            callback: function($$v) {
+              _vm.callToAction = $$v
+            },
+            expression: "callToAction"
+          }
+        },
+        [
+          _c(
+            "v-card",
+            [
+              _c(
+                "v-card-text",
+                [
+                  _c(
+                    "v-list",
+                    [
+                      _c(
+                        "v-list-tile",
+                        { attrs: { ripple: "", href: "tel:+2348147689572" } },
+                        [
+                          _c(
+                            "v-avatar",
+                            [
+                              _c("v-icon", { attrs: { color: "success" } }, [
+                                _vm._v("phone")
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("span", [_vm._v("Phone 1: +2348147689572")])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("v-divider", { attrs: { inset: "" } }),
+                      _vm._v(" "),
+                      _c(
+                        "v-list-tile",
+                        { attrs: { ripple: "", href: "tel:+2348115716657" } },
+                        [
+                          _c(
+                            "v-avatar",
+                            [
+                              _c("v-icon", { attrs: { color: "yellow" } }, [
+                                _vm._v("phone")
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("span", [_vm._v("Phone 2: +2348115716657")])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("v-divider", { attrs: { inset: "" } }),
+                      _vm._v(" "),
+                      _c(
+                        "v-list-tile",
+                        { attrs: { href: "https://m.me/ctrlxhub" } },
+                        [
+                          _c(
+                            "v-avatar",
+                            [
+                              _c("v-icon", { attrs: { color: "blue" } }, [
+                                _vm._v("fab fa-facebook-messenger")
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("span", [_vm._v(" Reach us on Messenger")])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-dialog",
+        {
+          attrs: { persistent: "", width: "300" },
+          model: {
+            value: _vm.showJoinForm,
+            callback: function($$v) {
+              _vm.showJoinForm = $$v
+            },
+            expression: "showJoinForm"
+          }
+        },
+        [
+          _c(
+            "v-card",
+            [
+              _c(
+                "v-card-text",
+                [
+                  _c(
+                    "v-layout",
+                    { attrs: { "align-center": "" } },
+                    [
+                      _c("h2", { staticClass: "subheading font-weight-bold" }, [
+                        _vm._v("Join us")
+                      ]),
+                      _vm._v(" "),
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          staticStyle: { float: "right" },
+                          attrs: { icon: "" },
+                          on: {
+                            click: function($event) {
+                              _vm.showJoinForm = false
+                            }
+                          }
+                        },
+                        [_c("v-icon", [_vm._v("close")])],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-window",
+                    {
+                      attrs: { touchless: "" },
+                      model: {
+                        value: _vm.windows,
+                        callback: function($$v) {
+                          _vm.windows = $$v
+                        },
+                        expression: "windows"
+                      }
+                    },
+                    [
+                      _c(
+                        "v-window-item",
+                        { key: 0 },
+                        [
+                          _c(
+                            "v-form",
+                            {
+                              ref: "form0",
+                              on: {
+                                submit: function($event) {
+                                  $event.preventDefault()
+                                  _vm.next(0)
+                                }
+                              }
+                            },
+                            [
+                              _c("v-text-field", {
+                                attrs: {
+                                  rules: [_vm.$requiredRule],
+                                  label: "Full Name",
+                                  "prepend-icon": "person_outline"
+                                },
+                                model: {
+                                  value: _vm.name,
+                                  callback: function($$v) {
+                                    _vm.name = $$v
+                                  },
+                                  expression: "name"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-text-field", {
+                                attrs: {
+                                  rules: [_vm.$requiredRule, _vm.$emailRule],
+                                  label: "Email",
+                                  "prepend-icon": "mail_outline"
+                                },
+                                model: {
+                                  value: _vm.email,
+                                  callback: function($$v) {
+                                    _vm.email = $$v
+                                  },
+                                  expression: "email"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-text-field", {
+                                attrs: {
+                                  rules: [
+                                    _vm.$requiredRule,
+                                    _vm.$nigerianPhoneRule
+                                  ],
+                                  label: "Phone",
+                                  "prepend-icon": "phone"
+                                },
+                                model: {
+                                  value: _vm.phone,
+                                  callback: function($$v) {
+                                    _vm.phone = $$v
+                                  },
+                                  expression: "phone"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: {
+                                    color: "primary",
+                                    small: "",
+                                    round: "",
+                                    type: "submit"
+                                  }
+                                },
+                                [_vm._v("Next")]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-window-item",
+                        { key: 1 },
+                        [
+                          _c(
+                            "v-form",
+                            {
+                              ref: "form3",
+                              on: {
+                                submit: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.join($event)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            What skills do you have interest in?\n                            "
+                              ),
+                              _c("v-checkbox", {
+                                attrs: { label: "Web Development" },
+                                model: {
+                                  value: _vm.webDev,
+                                  callback: function($$v) {
+                                    _vm.webDev = $$v
+                                  },
+                                  expression: "webDev"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-checkbox", {
+                                attrs: { label: "Mobile App Development" },
+                                model: {
+                                  value: _vm.mobileDev,
+                                  callback: function($$v) {
+                                    _vm.mobileDev = $$v
+                                  },
+                                  expression: "mobileDev"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-checkbox", {
+                                attrs: { label: "Digital Marketing" },
+                                model: {
+                                  value: _vm.digitalMarketing,
+                                  callback: function($$v) {
+                                    _vm.digitalMarketing = $$v
+                                  },
+                                  expression: "digitalMarketing"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-checkbox", {
+                                attrs: { label: "Content Development" },
+                                model: {
+                                  value: _vm.contentDev,
+                                  callback: function($$v) {
+                                    _vm.contentDev = $$v
+                                  },
+                                  expression: "contentDev"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "v-select",
+                                {
+                                  attrs: {
+                                    rules: [_vm.$requiredRule],
+                                    label: "How did you get to know about us?",
+                                    items: [
+                                      "Social Media",
+                                      "From a friend",
+                                      "A poster, ticket or banner"
+                                    ]
+                                  },
+                                  model: {
+                                    value: _vm.reference,
+                                    callback: function($$v) {
+                                      _vm.reference = $$v
+                                    },
+                                    expression: "reference"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "font-weight-bold title",
+                                      attrs: { slot: "prepend" },
+                                      slot: "prepend"
+                                    },
+                                    [_vm._v("?")]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm.reference == "From a friend"
+                                ? _c("v-text-field", {
+                                    attrs: {
+                                      rules: [_vm.$requiredRule],
+                                      label: "Your Friend's Name",
+                                      "prepend-icon": "person_outline"
+                                    },
+                                    model: {
+                                      value: _vm.friend,
+                                      callback: function($$v) {
+                                        _vm.friend = $$v
+                                      },
+                                      expression: "friend"
+                                    }
+                                  })
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: {
+                                    color: "primary",
+                                    small: "",
+                                    round: "",
+                                    type: "submit",
+                                    loading: _vm.joining
+                                  }
+                                },
+                                [_vm._v("Go")]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-window-item",
+                        { key: 2 },
+                        [
+                          _c(
+                            "center",
+                            [
+                              _c(
+                                "v-avatar",
+                                { staticClass: "primary mb-2" },
+                                [
+                                  _c("v-icon", { attrs: { dark: "" } }, [
+                                    _vm._v("done")
+                                  ])
+                                ],
+                                1
+                              ),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "title" }, [
+                                _vm._v("Welcome to Ctrl-X Hub")
+                              ]),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("span", [
+                                _vm._v(
+                                  "You will recieve an email from us shortly"
+                                )
+                              ])
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("v-progress-linear", {
+                    attrs: {
+                      value: (_vm.windows / 2) * 100,
+                      indeterminate: _vm.joining
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-snackbar",
+        {
+          attrs: { bottom: "", right: _vm.$vuetify.breakpoint.smAndUp },
+          model: {
+            value: _vm.showSnackbar,
+            callback: function($$v) {
+              _vm.showSnackbar = $$v
+            },
+            expression: "showSnackbar"
+          }
+        },
+        [
+          _c(
+            "span",
+            [
+              _c(
+                "v-icon",
+                {
+                  staticClass: "ml-2",
+                  attrs: { color: _vm.snackbarMessage.iconColor }
+                },
+                [_vm._v(_vm._s(_vm.snackbarMessage.icon))]
+              ),
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.snackbarMessage.message) +
+                  "\n        "
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("spacer"),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              attrs: { icon: "" },
+              on: {
+                click: function($event) {
+                  _vm.showSnackbar = false
+                }
+              }
+            },
+            [_c("v-icon", [_vm._v("close")])],
+            1
+          )
+        ],
+        1
       )
-    : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
